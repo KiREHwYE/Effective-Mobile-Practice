@@ -1,12 +1,8 @@
-package com.kire.network
+package com.kire.network.di
 
-import androidx.test.espresso.core.internal.deps.dagger.Binds
 import androidx.test.espresso.core.internal.deps.dagger.Module
 import androidx.test.espresso.core.internal.deps.dagger.Provides
-import com.kire.network.api.ApiService
-import com.kire.network.api.IApiService
-
-import com.kire.network.dto.Errors
+import com.kire.network.Errors
 
 import kotlinx.serialization.json.Json
 

@@ -1,4 +1,4 @@
-package com.kire.network
+package com.kire.network.di
 
 import androidx.test.espresso.core.internal.deps.dagger.Component
 
