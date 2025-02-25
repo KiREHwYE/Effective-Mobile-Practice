@@ -31,18 +31,7 @@ import io.ktor.serialization.JsonConvertException
  *  @author Михаил Гонтарев (KiREHwYE)
  */
 @Module
-internal abstract class NetworkModule {
-
-    /**
-     *  Связывает интерфейс ApiService с реализацией
-     *
-     *  @param apiService Реализация ApiService - cервиса для работы с API
-     *
-     *  @author Михаил Гонтарев (KiREHwYE)
-     */
-    @Binds
-    @Singleton
-    abstract fun provideApiService(apiService: ApiService): IApiService
+internal object NetworkModule {
 
     /**
      *  Создает HttpClient
