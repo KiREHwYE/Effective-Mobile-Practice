@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class MockResponse(
-    val offers: List<Offer>,
-    val vacancies: List<Vacancy>
+    val offers: List<OfferResponse>,
+    val vacancies: List<VacancyResponse>
 )
