@@ -1,5 +1,7 @@
 package com.kire.network.dto.response
 
+import com.kire.network.dto.response.offer.OfferResponse
+import com.kire.network.dto.response.vacancy.VacancyResponse
 import kotlinx.serialization.Serializable
 
 @Serializable

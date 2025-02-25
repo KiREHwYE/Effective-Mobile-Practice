@@ -1,4 +1,4 @@
-package com.kire.network.dto.response
+package com.kire.network.dto.response.offer
 
 import kotlinx.serialization.Serializable
 
