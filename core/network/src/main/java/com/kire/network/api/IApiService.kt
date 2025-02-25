@@ -3,7 +3,7 @@ package com.kire.network.api
 import com.kire.network.dto.response.MockResponse
 
 /**
- * API
+ * Интерфейс сервиса для работы с API
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
