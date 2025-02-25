@@ -2,6 +2,11 @@ package com.kire.network.dto.response.vacancy
 
 import kotlinx.serialization.Serializable
 
+/**
+ * Содержит информацию об адресе предлагаемой вакансии
+ *
+ * @author Михаил Гонтарев (KiREHwYE)
+ */
 @Serializable
 data class AddressResponse(
     val town: String? = null,
