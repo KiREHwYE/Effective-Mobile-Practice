@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
-data class AddressResponse(
+internal data class AddressResponse(
     val town: String? = null,
     val street: String? = null,
     val house: String? = null

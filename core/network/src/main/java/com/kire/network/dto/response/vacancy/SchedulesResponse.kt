@@ -9,6 +9,6 @@ import kotlinx.serialization.Serializable
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
-data class SchedulesResponse(
+internal data class SchedulesResponse(
     val schedules: List<String> = emptyList()
 )

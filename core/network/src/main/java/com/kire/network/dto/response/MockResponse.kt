@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
-data class MockResponse(
+internal data class MockResponse(
     val offers: List<OfferResponse>,
     val vacancies: List<VacancyResponse>
 )
