@@ -1,5 +1,6 @@
 package com.kire.network.api
 
+import com.kire.network.HttpRoutes
 import com.kire.network.dto.response.MockResponse
 
 import io.ktor.client.HttpClient
@@ -32,10 +33,11 @@ internal class ApiService @Inject constructor(
         return client.get {
             url {
                 protocol = URLProtocol.HTTPS
-                host = "drive.usercontent.google.com"
-                path("u", "0", "uc")
-                parameters.append("id", "1z4TbeDkbfXkvgpoJprXbN85uCcD7f00r")
-                parameters.append("export", "download")
+                host = HttpRoutes.HOST
+                path(*HttpRoutes.MOCK_URL.toTypedArray())
+                HttpRoutes.MOCK_URL_PARAMS.forEach { urlParameter ->
+                    parameters.append(name = urlParameter.name, value = urlParameter.value)
+                }
             }
             contentType(ContentType.Application.Json)
         }.body<MockResponse>()
