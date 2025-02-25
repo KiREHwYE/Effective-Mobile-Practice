@@ -3,6 +3,7 @@ package com.kire.network
 import androidx.test.espresso.core.internal.deps.dagger.Binds
 import androidx.test.espresso.core.internal.deps.dagger.Module
 import androidx.test.espresso.core.internal.deps.dagger.Provides
+import com.kire.network.api.ApiService
 import com.kire.network.api.IApiService
 
 import com.kire.network.dto.Errors
@@ -26,14 +27,28 @@ import io.ktor.serialization.JsonConvertException
 
 /**
  *  Предоставляет зависимости, связанные с сетевым взаимодействием приложения
+ *
+ *  @author Михаил Гонтарев (KiREHwYE)
  */
 @Module
 internal abstract class NetworkModule {
 
+    /**
+     *  Связывает интерфейс ApiService с реализацией
+     *
+     *  @param apiService Реализация ApiService - cервиса для работы с API
+     *
+     *  @author Михаил Гонтарев (KiREHwYE)
+     */
     @Binds
     @Singleton
     abstract fun provideApiService(apiService: ApiService): IApiService
 
+    /**
+     *  Создает HttpClient
+     *
+     *  @author Михаил Гонтарев (KiREHwYE)
+     */
     @Provides
     @Singleton
     fun provideApiClient(): HttpClient {
