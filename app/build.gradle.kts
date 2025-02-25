@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    // KAPT
+    kotlin("kapt")
 }
 
 android {
@@ -51,6 +53,11 @@ android {
 
 dependencies {
 
+    // Dagger
+    implementation(libs.dagger)
+    kapt(libs.google.dagger.compiler)
+
+    // Дефолтные зависимости
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
