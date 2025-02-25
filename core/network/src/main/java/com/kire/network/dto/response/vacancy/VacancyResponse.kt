@@ -3,7 +3,13 @@ package com.kire.network.dto.response.vacancy
 import kotlinx.serialization.Serializable
 
 /**
- * Содержит информацию вакансии
+ * Содержит информацию о вакансии
+ *
+ * @see AddressResponse
+ * @see ExperienceResponse
+ * @see SalaryResponse
+ * @see SchedulesResponse
+ * @see QuestionsResponse
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */

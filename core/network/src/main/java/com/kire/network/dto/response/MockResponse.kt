@@ -7,6 +7,9 @@ import kotlinx.serialization.Serializable
 /**
  * Содержит данные, присылаемые в mock
  *
+ * @see OfferResponse
+ * @see VacancyResponse
+ *
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable

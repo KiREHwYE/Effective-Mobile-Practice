@@ -5,6 +5,8 @@ import kotlinx.serialization.Serializable
 /**
  * Содержит предложение/идею для пользователя
  *
+ * @see ButtonResponse
+ *
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
