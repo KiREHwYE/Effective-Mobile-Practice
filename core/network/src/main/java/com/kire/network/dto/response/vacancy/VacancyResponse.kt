@@ -10,7 +10,7 @@ data class VacancyResponse(
     val company: String? = null,
     val experience: ExperienceResponse = ExperienceResponse(),
     val publishedDate: String? = null,
-    val isFavourite: Boolean? = null,
+    val isFavorite: Boolean? = null,
     val salary: SalaryResponse = SalaryResponse(),
     val schedules: SchedulesResponse = SchedulesResponse(),
     val appliedNumber: Int? = null,
