@@ -3,7 +3,7 @@ package com.kire.network.dto.response.offer
 import kotlinx.serialization.Serializable
 
 /**
- * Ответ API для offer. Содержит предложения/идеи для пользователя
+ * Содержит предложение/идею для пользователя
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
