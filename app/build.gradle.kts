@@ -55,6 +55,7 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
+    implementation(project(":core:ui"))
     kapt(libs.google.dagger.compiler)
 
     // Дефолтные зависимости

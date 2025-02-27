@@ -1,4 +1,4 @@
-package com.kire.effectivemobilepractice.ui.theme
+package com.kire.ui
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
