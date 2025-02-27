@@ -8,6 +8,13 @@ import kotlin.coroutines.CoroutineContext
 import dagger.Module
 import dagger.Provides
 
+/**
+ * Модуль Dagger для предоставления диспетчеров корутин:
+ * - Dispatchers.IO
+ * - Dispatchers.Default
+ *
+ * @author Михаил Гонтарев (KiREHwYE)
+ */
 @Module
 object CoroutineModule {
 
