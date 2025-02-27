@@ -1,7 +1,5 @@
 package com.kire.network.di
 
-import androidx.test.espresso.core.internal.deps.dagger.Module
-import androidx.test.espresso.core.internal.deps.dagger.Provides
 import com.kire.network.Errors
 
 import kotlinx.serialization.json.Json
@@ -20,6 +18,10 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.HttpResponseValidator
 import io.ktor.client.plugins.ServerResponseException
 import io.ktor.serialization.JsonConvertException
+
+import dagger.Module
+import dagger.Provides
+
 
 /**
  *  Предоставляет зависимости, связанные с сетевым взаимодействием приложения

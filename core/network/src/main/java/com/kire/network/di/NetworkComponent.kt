@@ -1,6 +1,6 @@
 package com.kire.network.di
 
-import androidx.test.espresso.core.internal.deps.dagger.Component
+import dagger.Component
 
 import com.kire.network.api.IApiService
 
