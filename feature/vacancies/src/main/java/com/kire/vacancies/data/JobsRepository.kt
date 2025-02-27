@@ -3,7 +3,7 @@ package com.kire.vacancies.data
 import com.kire.network.ErrorsResponse
 import com.kire.network.api.IApiService
 import com.kire.vacancies.domain.IJobsRepository
-import com.kire.vacancies.domain.IRequestResultDomain
+import com.kire.vacancies.domain.model.IRequestResultDomain
 import javax.inject.Inject
 
 import com.kire.util.IODispatcher

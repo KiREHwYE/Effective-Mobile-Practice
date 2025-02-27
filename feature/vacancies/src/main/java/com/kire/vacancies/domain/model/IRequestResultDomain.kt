@@ -1,4 +1,4 @@
-package com.kire.vacancies.domain
+package com.kire.vacancies.domain.model
 
 /**
  * Ответ от сервера.
