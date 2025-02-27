@@ -33,6 +33,13 @@ import dagger.Provides
 @Module
 internal object NetworkModule {
 
+    /**
+     * Создает ApiService
+     *
+     * @return ApiService - для работы с API
+     *
+     * @author Михаил Гонтарев (KiREHwYE)
+     */
     @Provides
     @Singleton
     fun provideApiService(client: HttpClient): IApiService {
