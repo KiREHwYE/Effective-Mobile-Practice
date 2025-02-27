@@ -6,5 +6,6 @@ package com.kire.vacancies.domain
  * @author Михаил Гонтарев (KiREHwYE)
  */
 interface IJobsRepository {
-
+    suspend fun getVacancies(): IRequestResultDomain
+    suspend fun getOffers(): IRequestResultDomain
 }
