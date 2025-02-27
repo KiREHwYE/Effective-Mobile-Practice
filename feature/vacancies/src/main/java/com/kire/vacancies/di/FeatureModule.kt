@@ -6,6 +6,7 @@ import com.kire.vacancies.domain.IJobsRepository
 
 import dagger.Module
 import dagger.Provides
+import kotlinx.coroutines.CoroutineDispatcher
 
 /**
  * Отвечает за инжекцию зависимостей в рамках feature:vacancies
@@ -13,7 +14,7 @@ import dagger.Provides
 @Module
 class FeatureModule {
     @Provides
-    fun provideJobsRepository(apiService: IApiService): IJobsRepository {
-        return JobsRepository(apiService)
+    fun provideJobsRepository(apiService: IApiService, coroutineDispatcher: CoroutineDispatcher): IJobsRepository {
+        return JobsRepository(apiService, coroutineDispatcher)
     }
 }
