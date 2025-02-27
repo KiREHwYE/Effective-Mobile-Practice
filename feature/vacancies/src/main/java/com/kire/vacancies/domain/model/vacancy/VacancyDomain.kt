@@ -1,5 +1,16 @@
 package com.kire.vacancies.domain.model.vacancy
 
+/**
+ * Содержит информацию о вакансии
+ *
+ * @see AddressDomain
+ * @see ExperienceDomain
+ * @see SchedulesDomain
+ * @see SchedulesDomain
+ * @see QuestionsDomain
+ *
+ * @author Михаил Гонтарев (KiREHwYE)
+ */
 data class VacancyDomain(
     val id: String? = null,
     val title: String? = null,
