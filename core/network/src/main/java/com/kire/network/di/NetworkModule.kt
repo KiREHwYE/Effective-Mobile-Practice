@@ -1,6 +1,8 @@
 package com.kire.network.di
 
 import com.kire.network.Errors
+import com.kire.network.api.ApiService
+import com.kire.network.api.IApiService
 
 import kotlinx.serialization.json.Json
 
@@ -31,6 +33,12 @@ import dagger.Provides
 @Module
 internal object NetworkModule {
 
+    @Provides
+    @Singleton
+    fun provideApiService(client: HttpClient): IApiService {
+        return ApiService(client)
+    }
+
     /**
      *  Создает HttpClient
      *
@@ -38,7 +46,7 @@ internal object NetworkModule {
      */
     @Provides
     @Singleton
-    fun provideApiClient(): HttpClient {
+    fun provideHttpClient(): HttpClient {
 
         return HttpClient(OkHttp) {
             expectSuccess = true
