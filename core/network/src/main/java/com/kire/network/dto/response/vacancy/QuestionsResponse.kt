@@ -8,6 +8,6 @@ import kotlinx.serialization.Serializable
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
-internal data class QuestionsResponse(
+data class QuestionsResponse(
     val questions: List<String> = emptyList()
 )

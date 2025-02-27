@@ -20,6 +20,6 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(modules = [NetworkModule::class])
-internal interface NetworkComponent {
+interface NetworkComponent {
     fun provideApiService(): IApiService
 }

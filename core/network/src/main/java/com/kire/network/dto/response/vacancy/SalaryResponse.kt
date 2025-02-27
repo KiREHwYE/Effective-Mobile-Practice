@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
-internal data class SalaryResponse(
+data class SalaryResponse(
     val short: String? = null,
     val full: String? = null
 )

@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
-internal data class ExperienceResponse(
+data class ExperienceResponse(
     val previewText: String? = null,
     val text: String? = null
 )

@@ -8,6 +8,6 @@ import kotlinx.serialization.Serializable
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
-internal data class ButtonResponse(
+data class ButtonResponse(
     val text: String? = null
 )

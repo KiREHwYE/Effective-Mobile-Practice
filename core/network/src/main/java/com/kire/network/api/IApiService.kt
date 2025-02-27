@@ -7,6 +7,6 @@ import com.kire.network.dto.response.MockResponse
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
-internal interface IApiService {
+interface IApiService {
     suspend fun getMockData(): MockResponse
 }

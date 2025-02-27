@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
-internal data class OfferResponse(
+data class OfferResponse(
     val id: String? = null,
     val title: String? = null,
     val button: ButtonResponse? = null,
