@@ -1,4 +1,4 @@
-package com.kire.vacancies.data.mapper
+package com.kire.vacancies.data.mapper.offer
 
 import com.kire.network.dto.response.offer.OfferResponse
 import com.kire.vacancies.domain.model.offer.OfferDomain
