@@ -31,7 +31,7 @@ import dagger.Provides
  *  @author Михаил Гонтарев (KiREHwYE)
  */
 @Module
-internal object NetworkModule {
+object NetworkModule {
 
     /**
      * Создает ApiService
