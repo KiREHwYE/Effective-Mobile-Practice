@@ -18,7 +18,7 @@ import kotlinx.coroutines.CoroutineDispatcher
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Module
-class FeatureModule {
+class VacanciesModule {
 
     /**
      * Отвечает за создание JobsRepository
