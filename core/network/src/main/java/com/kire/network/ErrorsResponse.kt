@@ -9,6 +9,6 @@ import kotlinx.serialization.Serializable
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Serializable
-internal data class Errors(
+data class ErrorsResponse(
     val errors: List<String> = emptyList()
 ): Exception()

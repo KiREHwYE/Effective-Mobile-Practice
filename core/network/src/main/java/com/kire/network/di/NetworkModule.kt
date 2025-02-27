@@ -1,6 +1,6 @@
 package com.kire.network.di
 
-import com.kire.network.Errors
+import com.kire.network.ErrorsResponse
 import com.kire.network.api.ApiService
 import com.kire.network.api.IApiService
 
@@ -83,24 +83,24 @@ object NetworkModule {
                         is ClientRequestException -> {
                             val exceptionResponse = exception.response
                             try {
-                                exceptionResponse.body<Errors>()
+                                exceptionResponse.body<ErrorsResponse>()
                             } catch (e: JsonConvertException) {
                                 val body = exceptionResponse.body<String>()
-                                Errors(errors = listOf(body))
+                                ErrorsResponse(errors = listOf(body))
                             }
                         }
                         is ServerResponseException -> {
                             val exceptionResponse = exception.response
                             try {
-                                exceptionResponse.body<Errors>()
+                                exceptionResponse.body<ErrorsResponse>()
                             } catch (e: JsonConvertException) {
                                 val body = exceptionResponse.body<String>()
-                                Errors(errors = listOf(body))
+                                ErrorsResponse(errors = listOf(body))
                             }
                         }
 
                         else -> {
-                            Errors()
+                            ErrorsResponse()
                         }
                     }
 
