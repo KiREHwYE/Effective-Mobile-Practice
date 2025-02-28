@@ -12,21 +12,21 @@ import androidx.compose.ui.graphics.Color
 data class ExtendedColor(
 
     // Basic
-    val black: Color = Color.Black,
-    val grey1: Color = Color(0xFF222325),
-    val grey2: Color = Color(0xFF313234),
-    val grey3: Color = Color(0xFF858688),
-    val grey4: Color = Color(0xFF9F9F9F),
-    val grey5: Color = Color(0xFFDBDBDB),
-    val white: Color = Color.White,
+    val black: Color = Color.Unspecified,
+    val grey1: Color =  Color.Unspecified,
+    val grey2: Color =  Color.Unspecified,
+    val grey3: Color =  Color.Unspecified,
+    val grey4: Color =  Color.Unspecified,
+    val grey5: Color =  Color.Unspecified,
+    val white: Color =  Color.Unspecified,
 
     // Special
-    val blue: Color = Color(0xFF2B7EFE),
-    val darkBlue: Color = Color(0xFF00427D),
-    val green: Color = Color(0xFF4CB24E),
-    val darkGreen: Color = Color(0xFF015905),
-    val red: Color = Color(0xFFFF0000),
+    val blue: Color =  Color.Unspecified,
+    val darkBlue: Color =  Color.Unspecified,
+    val green: Color =  Color.Unspecified,
+    val darkGreen: Color =  Color.Unspecified,
+    val red: Color =  Color.Unspecified,
 
     // Shadow
-    val shadows: Color = Color(0xFF0C0C0C).copy(alpha = 0.9f)
+    val shadows: Color =  Color.Unspecified
 )
