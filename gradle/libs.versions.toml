@@ -28,6 +28,7 @@ material3Android = "1.3.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-ui-unit = { module = "androidx.compose.ui:ui-unit" }
 dagger = { module = "com.google.dagger:dagger", version.ref="dagger" }
 google-dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref="dagger"  }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
