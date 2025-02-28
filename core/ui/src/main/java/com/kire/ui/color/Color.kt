@@ -1,4 +1,4 @@
-package com.kire.ui
+package com.kire.ui.color
 
 import androidx.compose.ui.graphics.Color
 
