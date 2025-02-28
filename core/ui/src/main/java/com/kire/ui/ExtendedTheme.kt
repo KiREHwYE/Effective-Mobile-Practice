@@ -31,7 +31,7 @@ val extendedColor = ExtendedColor(
 )
 
 @Composable
-fun EffectiveMobilePracticeTheme(
+fun EffectiveMobileExtendedPracticeTheme(
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
