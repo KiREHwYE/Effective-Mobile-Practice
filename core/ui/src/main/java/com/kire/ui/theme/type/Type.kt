@@ -1,4 +1,4 @@
-package com.kire.ui.type
+package com.kire.ui.theme.type
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

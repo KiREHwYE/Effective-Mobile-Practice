@@ -1,4 +1,4 @@
-package com.kire.ui
+package com.kire.ui.theme
 
 import androidx.compose.ui.unit.dp
 

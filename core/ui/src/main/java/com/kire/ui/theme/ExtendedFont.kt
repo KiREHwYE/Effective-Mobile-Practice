@@ -1,4 +1,4 @@
-package com.kire.ui
+package com.kire.ui.theme
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.text.font.FontFamily

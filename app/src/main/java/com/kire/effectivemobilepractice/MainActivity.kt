@@ -11,7 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.kire.ui.EffectiveMobileExtendedPracticeTheme
+import com.kire.ui.theme.EffectiveMobileExtendedPracticeTheme
+import com.kire.ui.theme.EffectiveMobilePracticeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +42,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    com.kire.ui.EffectiveMobilePracticeTheme {
+    EffectiveMobilePracticeTheme {
         Greeting("Android")
     }
 }

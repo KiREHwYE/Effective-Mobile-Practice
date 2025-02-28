@@ -1,4 +1,4 @@
-package com.kire.ui
+package com.kire.ui.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -11,9 +11,10 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.kire.ui.R
 
-import com.kire.ui.color.ExtendedColor
-import com.kire.ui.type.ExtendedType
+import com.kire.ui.theme.color.ExtendedColor
+import com.kire.ui.theme.type.ExtendedType
 
 val LocalExtendedColor = staticCompositionLocalOf { ExtendedColor() }
 
