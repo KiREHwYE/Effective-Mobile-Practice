@@ -15,6 +15,7 @@ import com.kire.ui.color.Purple40
 import com.kire.ui.color.Purple80
 import com.kire.ui.color.PurpleGrey40
 import com.kire.ui.color.PurpleGrey80
+import com.kire.ui.type.Typography
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
