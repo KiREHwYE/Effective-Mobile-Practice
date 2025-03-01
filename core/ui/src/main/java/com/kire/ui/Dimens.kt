@@ -23,8 +23,4 @@ object Dimens {
 
     val ROUNDED_CORNERS_8 = 8.dp
     val ROUNDED_CORNERS_50_PERCENT = 50
-
-    val TEXTFIELD_HEIGHT = 40.dp
-
-    val CODE_INPUT_FIELD_SIZE = 48.dp
 }

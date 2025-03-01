@@ -3,8 +3,6 @@ package com.kire.login.presentation
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
-import androidx.compose.foundation.interaction.collectIsHoveredAsState
-import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,8 +26,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.kire.login.constant.LoginDimens.TEXTFIELD_HEIGHT
 import com.kire.login.constant.LoginStrings.CONTINUE
 import com.kire.login.constant.LoginStrings.EMAIL_HINT
 import com.kire.login.constant.LoginStrings.EMPLOYEES_SEARCH
@@ -43,7 +41,6 @@ import com.kire.ui.Dimens.HORIZONTAL_PAD_44
 import com.kire.ui.Dimens.HORIZONTAL_PAD_8
 import com.kire.ui.Dimens.ROUNDED_CORNERS_50_PERCENT
 import com.kire.ui.Dimens.ROUNDED_CORNERS_8
-import com.kire.ui.Dimens.TEXTFIELD_HEIGHT
 import com.kire.ui.Dimens.VERTICAL_PAD_11
 import com.kire.ui.Dimens.VERTICAL_PAD_16
 import com.kire.ui.Dimens.VERTICAL_PAD_7
