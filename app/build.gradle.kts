@@ -1,13 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    // KAPT
-    kotlin("kapt")
+
+    // KSP
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
 }
 
 android {
     namespace = "com.kire.effectivemobilepractice"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.kire.effectivemobilepractice"
@@ -55,7 +56,7 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
-    kapt(libs.google.dagger.compiler)
+    ksp(libs.google.dagger.compiler)
 
     // Модули
     implementation(project(":core:ui"))

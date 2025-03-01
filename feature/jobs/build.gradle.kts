@@ -2,13 +2,13 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
 
-    // KAPT
-    kotlin("kapt")
+    // KSP
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
 }
 
 android {
     namespace = "com.kire.vacancies"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 29
@@ -39,7 +39,7 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
-    kapt(libs.google.dagger.compiler)
+    ksp(libs.google.dagger.compiler)
 
     implementation(project(":core:network"))
     implementation(project(":core:di"))

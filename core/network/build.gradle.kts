@@ -5,8 +5,8 @@ plugins {
     // Сериализация
     kotlin("plugin.serialization") version "1.9.0"
 
-    // KAPT
-    kotlin("kapt")
+    // KSP
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
 }
 
 
@@ -21,7 +21,7 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
-    kapt(libs.google.dagger.compiler)
+    ksp(libs.google.dagger.compiler)
 
     //Ktor
     implementation(libs.ktor.client.core)

@@ -2,8 +2,8 @@ plugins {
     id("java-library")
     alias(libs.plugins.jetbrains.kotlin.jvm)
 
-    // KAPT
-    kotlin("kapt")
+    // KSP
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
 }
 
 java {
@@ -15,7 +15,7 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
-    kapt(libs.google.dagger.compiler)
+    ksp(libs.google.dagger.compiler)
 
     // Для Qualifiers (например, @IODispatcher)
     implementation(project(":core:util"))
