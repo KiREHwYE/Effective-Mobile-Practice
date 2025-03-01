@@ -35,7 +35,7 @@ import com.kire.login.constant.LoginStrings.I_SEARCH_FOR_EMPLOYEES
 import com.kire.login.constant.LoginStrings.JOB_SEARCH
 import com.kire.login.constant.LoginStrings.LOGIN_VIA_PASSWORD
 import com.kire.login.constant.LoginStrings.POSTING_VACANCIES
-import com.kire.login.navigation.LoginRoutes
+import com.kire.login.navigation.LogInRoutes
 import com.kire.ui.Dimens.HORIZONTAL_PAD_24
 import com.kire.ui.Dimens.HORIZONTAL_PAD_44
 import com.kire.ui.Dimens.HORIZONTAL_PAD_8
@@ -146,7 +146,7 @@ fun LogInScreen(
                                     Modifier
                                 else Modifier
                                     .bounceClick {
-                                        navController.navigate(LoginRoutes.LoginCode.route)
+                                        navController.navigate(LogInRoutes.LogInCode.route)
                                     }
                             )
                             .clip(RoundedCornerShape(ROUNDED_CORNERS_8))

@@ -7,7 +7,7 @@ package com.kire.login.navigation
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
-sealed class LoginRoutes(val route: String) {
-    object Login: LoginRoutes("login")
-    object LoginCode: LoginRoutes("login_code")
+sealed class LogInRoutes(val route: String) {
+    object LogIn: LogInRoutes("login")
+    object LogInCode: LogInRoutes("login_code")
 }

@@ -3,7 +3,7 @@ package com.kire.effectivemobilepractice
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.kire.login.navigation.LoginRoutes
+import com.kire.login.navigation.LogInRoutes
 import com.kire.login.navigation.loginNavGraph
 
 /**
@@ -15,7 +15,7 @@ import com.kire.login.navigation.loginNavGraph
  */
 @Composable
 fun MainNavHost(navHostController: NavHostController) {
-    NavHost(navController = navHostController, startDestination = LoginRoutes.Login.route) {
+    NavHost(navController = navHostController, startDestination = LogInRoutes.LogIn.route) {
         loginNavGraph(navHostController)
     }
 }
