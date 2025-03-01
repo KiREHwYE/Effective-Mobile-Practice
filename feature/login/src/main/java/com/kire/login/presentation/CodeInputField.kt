@@ -41,9 +41,16 @@ import com.kire.ui.Dimens.ROUNDED_CORNERS_8
 import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
 
+/**
+ * Поле ввода кода
+ *
+ * @param onCodeCompleted передает информацию о том введен ли уже код или нет
+ *
+ * @author Михаил Гонтарев (KiREHwYE)
+ */
 @Composable
 fun CodeInputField(
-    changeActive: (Boolean) -> Unit
+    onCodeCompleted: (Boolean) -> Unit
 ) {
     val codeLength = 4
     val code = remember { mutableStateListOf("", "", "", "") }
@@ -55,7 +62,7 @@ fun CodeInputField(
     }
 
     LaunchedEffect(isCodeComplete) {
-        changeActive(isCodeComplete)
+        onCodeCompleted(isCodeComplete)
     }
 
     Row(
