@@ -15,6 +15,7 @@ import com.kire.network.dto.response.vacancy.VacancyResponse
  */
 fun VacancyDomain.toPresentation() = Vacancy(
     id = this.id,
+    lookingNumber = this.lookingNumber,
     title = this.title,
     address = this.address.toPresentation(),
     company = this.company,
@@ -22,9 +23,9 @@ fun VacancyDomain.toPresentation() = Vacancy(
     publishedDate = this.publishedDate,
     isFavorite = this.isFavorite,
     salary = this.salary.toPresentation(),
-    schedules = this.schedules.toPresentation(),
+    schedules = this.schedules,
     appliedNumber = this.appliedNumber,
     description = this.description,
     responsibilities = this.responsibilities,
-    questions = this.questions.toPresentation()
+    questions = this.questions
 )

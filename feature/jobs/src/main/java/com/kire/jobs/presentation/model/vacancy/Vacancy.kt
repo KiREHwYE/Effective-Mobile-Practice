@@ -13,6 +13,7 @@ package com.kire.jobs.presentation.model.vacancy
  */
 data class Vacancy(
     val id: String? = null,
+    val lookingNumber: Int? = null,
     val title: String? = null,
     val address: Address = Address(),
     val company: String? = null,
@@ -20,9 +21,9 @@ data class Vacancy(
     val publishedDate: String? = null,
     val isFavorite: Boolean? = null,
     val salary: Salary = Salary(),
-    val schedules: Schedules = Schedules(),
+    val schedules: List<String> = emptyList(),
     val appliedNumber: Int? = null,
     val description: String? = null,
     val responsibilities: String? = null,
-    val questions: Questions = Questions()
+    val questions: List<String> = emptyList()
 )

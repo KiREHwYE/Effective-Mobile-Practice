@@ -16,6 +16,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class VacancyResponse(
     val id: String? = null,
+    val lookingNumber: Int? = null,
     val title: String? = null,
     val address: AddressResponse = AddressResponse(),
     val company: String? = null,
@@ -23,9 +24,9 @@ data class VacancyResponse(
     val publishedDate: String? = null,
     val isFavorite: Boolean? = null,
     val salary: SalaryResponse = SalaryResponse(),
-    val schedules: SchedulesResponse = SchedulesResponse(),
+    val schedules: List<String> = emptyList(),
     val appliedNumber: Int? = null,
     val description: String? = null,
     val responsibilities: String? = null,
-    val questions: QuestionsResponse = QuestionsResponse()
+    val questions: List<String> = emptyList()
 )

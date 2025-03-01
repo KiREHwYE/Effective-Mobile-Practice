@@ -1,5 +1,9 @@
 package com.kire.jobs.domain.model.vacancy
 
+import com.kire.network.dto.response.vacancy.AddressResponse
+import com.kire.network.dto.response.vacancy.ExperienceResponse
+import com.kire.network.dto.response.vacancy.SalaryResponse
+
 /**
  * Содержит информацию о вакансии
  *
@@ -13,6 +17,7 @@ package com.kire.jobs.domain.model.vacancy
  */
 data class VacancyDomain(
     val id: String? = null,
+    val lookingNumber: Int? = null,
     val title: String? = null,
     val address: AddressDomain = AddressDomain(),
     val company: String? = null,
@@ -20,9 +25,9 @@ data class VacancyDomain(
     val publishedDate: String? = null,
     val isFavorite: Boolean? = null,
     val salary: SalaryDomain = SalaryDomain(),
-    val schedules: SchedulesDomain = SchedulesDomain(),
+    val schedules: List<String> = emptyList(),
     val appliedNumber: Int? = null,
     val description: String? = null,
     val responsibilities: String? = null,
-    val questions: QuestionsDomain = QuestionsDomain()
+    val questions: List<String> = emptyList()
 )
