@@ -6,8 +6,6 @@ import com.kire.network.api.IApiService
 
 import kotlinx.serialization.json.Json
 
-import javax.inject.Singleton
-
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.okhttp.OkHttp
@@ -34,25 +32,11 @@ import dagger.Provides
 object NetworkModule {
 
     /**
-     * Создает ApiService
-     *
-     * @return ApiService - для работы с API
-     *
-     * @author Михаил Гонтарев (KiREHwYE)
-     */
-    @Provides
-    @Singleton
-    fun provideApiService(client: HttpClient): IApiService {
-        return ApiService(client)
-    }
-
-    /**
      *  Создает HttpClient
      *
      *  @author Михаил Гонтарев (KiREHwYE)
      */
     @Provides
-    @Singleton
     fun provideHttpClient(): HttpClient {
 
         return HttpClient(OkHttp) {
@@ -109,5 +93,17 @@ object NetworkModule {
                 }
             }
         }
+    }
+
+    /**
+     * Создает ApiService
+     *
+     * @return ApiService - для работы с API
+     *
+     * @author Михаил Гонтарев (KiREHwYE)
+     */
+    @Provides
+    fun provideApiService(client: HttpClient): IApiService {
+        return ApiService(client)
     }
 }

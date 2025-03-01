@@ -18,7 +18,6 @@ import javax.inject.Singleton
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
-@Singleton
 @Component(modules = [NetworkModule::class])
 interface NetworkComponent {
     fun provideApiService(): IApiService

@@ -1,8 +1,11 @@
 package com.kire.jobs.di
 
+import com.kire.di.CoroutineModule
 import com.kire.network.di.NetworkModule
 import com.kire.jobs.domain.IJobsRepository
 import com.kire.jobs.domain.usecase.IJobsUseCases
+import com.kire.jobs.presentation.JobsViewModelFactory
+import com.kire.network.di.NetworkComponent
 
 import dagger.Component
 
@@ -21,8 +24,9 @@ import javax.inject.Singleton
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Singleton
-@Component(modules = [JobsModule::class, NetworkModule::class])
+@Component(dependencies = [NetworkComponent::class], modules = [JobsModule::class, CoroutineModule::class])
 interface JobsComponent {
     fun provideJobsRepository(): IJobsRepository
     fun provideJobsUseCases(): IJobsUseCases
+    fun provideJobsViewModelFactory(): JobsViewModelFactory
 }
