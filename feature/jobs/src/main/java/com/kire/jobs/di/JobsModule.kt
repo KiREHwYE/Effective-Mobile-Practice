@@ -7,6 +7,8 @@ import com.kire.jobs.domain.usecase.GetOffersUseCase
 import com.kire.jobs.domain.usecase.GetVacanciesUseCase
 import com.kire.jobs.domain.usecase.IJobsUseCases
 import com.kire.jobs.domain.usecase.JobsUseCases
+import com.kire.jobs.presentation.JobsViewModelFactory
+import com.kire.util.IODispatcher
 
 import dagger.Module
 import dagger.Provides
@@ -33,7 +35,10 @@ class JobsModule {
      * @author Михаил Гонтарев (KiREHwYE)
      */
     @Provides
-    fun provideJobsRepository(apiService: IApiService, coroutineDispatcher: CoroutineDispatcher): IJobsRepository {
+    fun provideJobsRepository(
+        apiService: IApiService,
+        @IODispatcher coroutineDispatcher: CoroutineDispatcher
+    ): IJobsRepository {
         return JobsRepository(apiService, coroutineDispatcher)
     }
 
@@ -89,5 +94,20 @@ class JobsModule {
     @Provides
     fun provideGetOffersUseCase(jobsRepository: IJobsRepository): GetOffersUseCase {
         return GetOffersUseCase(jobsRepository)
+    }
+
+    /**
+     * Отвечает за создание provideJobsViewModelFactory
+     *
+     * @param jobsUseCases usecase'ы экранов feature:jobs
+     *
+     * @see IJobsUseCases
+     * @see JobsViewModelFactory
+     *
+     * @author Михаил Гонтарев (KiREHwYE)
+     */
+    @Provides
+    fun provideJobsViewModelFactory(jobsUseCases: IJobsUseCases): JobsViewModelFactory {
+        return JobsViewModelFactory(jobsUseCases)
     }
 }
