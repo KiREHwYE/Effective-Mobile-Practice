@@ -7,6 +7,7 @@ import kotlin.coroutines.CoroutineContext
 
 import dagger.Module
 import dagger.Provides
+import kotlinx.coroutines.CoroutineDispatcher
 
 /**
  * Модуль Dagger для предоставления диспетчеров корутин:
@@ -20,9 +21,9 @@ object CoroutineModule {
 
     @Provides
     @IODispatcher
-    fun provideIODispatcher(): CoroutineContext = Dispatchers.IO
+    fun provideIODispatcher(): CoroutineDispatcher = Dispatchers.IO
 
     @Provides
     @DefaultDispatcher
-    fun provideDefaultDispatcher(): CoroutineContext = Dispatchers.Default
+    fun provideDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
 }
