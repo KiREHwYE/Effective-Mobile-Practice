@@ -35,7 +35,7 @@ import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import com.kire.login.constant.LoginDimens.CODE_INPUT_FIELD_SIZE
+import com.kire.login.constant.LogInDimens.CODE_INPUT_FIELD_SIZE
 import com.kire.ui.Dimens.HORIZONTAL_PAD_8
 import com.kire.ui.Dimens.ROUNDED_CORNERS_8
 import com.kire.ui.theme.extendedColor

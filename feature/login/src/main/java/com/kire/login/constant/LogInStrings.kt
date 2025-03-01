@@ -5,7 +5,7 @@ package com.kire.login.constant
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
-object LoginStrings {
+object LogInStrings {
     const val LOGIN_TO_ACCOUNT = "Вход в личный кабинет"
     const val JOB_SEARCH = "Поиск работы"
     const val CONTINUE = "Продолжить"

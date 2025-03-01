@@ -8,7 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.kire.login.constant.LoginStrings.LOGIN_TO_ACCOUNT
+import com.kire.login.constant.LogInStrings.LOGIN_TO_ACCOUNT
 import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
 

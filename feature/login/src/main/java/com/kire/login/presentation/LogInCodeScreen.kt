@@ -21,10 +21,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.navigation.NavController
-import com.kire.login.constant.LoginStrings.EMAIL_HINT
-import com.kire.login.constant.LoginStrings.SENT_CODE_TO
-import com.kire.login.constant.LoginStrings.SUBMIT
-import com.kire.login.constant.LoginStrings.WRITE_CODE_SUGGESTION
+import com.kire.login.constant.LogInStrings.EMAIL_HINT
+import com.kire.login.constant.LogInStrings.SENT_CODE_TO
+import com.kire.login.constant.LogInStrings.SUBMIT
+import com.kire.login.constant.LogInStrings.WRITE_CODE_SUGGESTION
 import com.kire.ui.Dimens.ROUNDED_CORNERS_8
 import com.kire.ui.Dimens.VERTICAL_PAD_14
 import com.kire.ui.Dimens.VERTICAL_PAD_16

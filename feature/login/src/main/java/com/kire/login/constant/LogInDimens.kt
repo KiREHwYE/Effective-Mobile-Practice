@@ -7,7 +7,7 @@ import androidx.compose.ui.unit.dp
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
-object LoginDimens {
+object LogInDimens {
     val TEXTFIELD_HEIGHT = 40.dp
     val CODE_INPUT_FIELD_SIZE = 48.dp
 }
