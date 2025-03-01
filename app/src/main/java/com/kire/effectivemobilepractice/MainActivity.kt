@@ -1,48 +1,43 @@
 package com.kire.effectivemobilepractice
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.absolutePadding
+import androidx.compose.foundation.layout.displayCutout
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.kire.ui.Dimens.HORIZONTAL_PAD_16
+
 import com.kire.ui.theme.EffectiveMobileExtendedPracticeTheme
-import com.kire.ui.theme.EffectiveMobilePracticeTheme
+import com.kire.ui.theme.extendedColor
 
 class MainActivity : ComponentActivity() {
+
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             EffectiveMobileExtendedPracticeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Scaffold(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(color = extendedColor.black)
+                        .windowInsetsPadding(WindowInsets.displayCutout)
+                ) { _ ->
+
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    EffectiveMobilePracticeTheme {
-        Greeting("Android")
     }
 }
