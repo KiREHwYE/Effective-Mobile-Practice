@@ -1,10 +1,7 @@
 package com.kire.network.di
 
-import dagger.Component
-
 import com.kire.network.api.IApiService
-
-import javax.inject.Singleton
+import dagger.Component
 
 /**
  * Компонент Dagger для предоставления зависимостей, связанных с сетью.

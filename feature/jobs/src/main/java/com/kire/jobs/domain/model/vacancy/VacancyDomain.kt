@@ -1,9 +1,5 @@
 package com.kire.jobs.domain.model.vacancy
 
-import com.kire.network.dto.response.vacancy.AddressResponse
-import com.kire.network.dto.response.vacancy.ExperienceResponse
-import com.kire.network.dto.response.vacancy.SalaryResponse
-
 /**
  * Содержит информацию о вакансии
  *

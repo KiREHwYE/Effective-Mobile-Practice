@@ -1,10 +1,7 @@
 package com.kire.jobs.data.mapper.vacancy
 
-import com.kire.network.dto.response.vacancy.VacancyResponse
 import com.kire.jobs.domain.model.vacancy.VacancyDomain
-import com.kire.network.dto.response.vacancy.AddressResponse
-import com.kire.network.dto.response.vacancy.ExperienceResponse
-import com.kire.network.dto.response.vacancy.SalaryResponse
+import com.kire.network.dto.response.vacancy.VacancyResponse
 
 /**
  * Конвертирует VacancyResponse в VacancyDomain

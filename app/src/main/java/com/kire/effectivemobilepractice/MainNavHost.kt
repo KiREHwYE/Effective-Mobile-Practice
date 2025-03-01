@@ -3,6 +3,7 @@ package com.kire.effectivemobilepractice
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.kire.jobs.navigation.jobsNavGraph
 import com.kire.jobs.presentation.JobsViewModel
 import com.kire.login.navigation.LogInRoutes
 import com.kire.login.navigation.loginNavGraph

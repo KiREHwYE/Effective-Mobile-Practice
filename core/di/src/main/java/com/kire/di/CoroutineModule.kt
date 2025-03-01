@@ -1,13 +1,11 @@
 package com.kire.di
 
-import com.kire.util.IODispatcher
 import com.kire.util.DefaultDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlin.coroutines.CoroutineContext
-
+import com.kire.util.IODispatcher
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 
 /**
  * Модуль Dagger для предоставления диспетчеров корутин:

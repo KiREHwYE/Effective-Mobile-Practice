@@ -2,7 +2,6 @@ package com.kire.network.api
 
 import com.kire.network.HttpRoutes
 import com.kire.network.dto.response.MockResponse
-
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.accept
@@ -11,10 +10,8 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.URLProtocol
 import io.ktor.http.contentType
-import io.ktor.http.headers
 import io.ktor.http.path
 import kotlinx.serialization.json.Json
-
 import javax.inject.Inject
 
 /**

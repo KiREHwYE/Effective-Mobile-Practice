@@ -2,7 +2,6 @@ package com.kire.jobs.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 
 /**
