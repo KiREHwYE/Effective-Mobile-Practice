@@ -54,6 +54,8 @@ fun LoginScreen(
     modifier: Modifier = Modifier
 ) {
 
+    Topbar()
+
     /** Просто затычка */
     val state = rememberTextFieldState("")
 
