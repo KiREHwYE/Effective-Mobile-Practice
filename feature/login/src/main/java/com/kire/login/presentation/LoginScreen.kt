@@ -76,6 +76,7 @@ fun LoginScreen(
         verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_16),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Плитка поиска работы
         Tile {
             Text(
                 text = JOB_SEARCH,
@@ -141,6 +142,7 @@ fun LoginScreen(
             }
         }
 
+        // Плитка поиска сотрудников
         Tile {
             Column(
                 modifier = Modifier
