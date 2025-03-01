@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.displayCutout
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,6 +18,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.kire.ui.Dimens.HORIZONTAL_PAD_16
+import com.kire.ui.Dimens.VERTICAL_PAD_16
 
 import com.kire.ui.theme.EffectiveMobileExtendedPracticeTheme
 import com.kire.ui.theme.extendedColor
@@ -29,17 +31,29 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EffectiveMobileExtendedPracticeTheme {
-                Scaffold(
+//                Scaffold(
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .background(color = extendedColor.black)
+//                        .windowInsetsPadding(WindowInsets.displayCutout)
+//                        .padding(horizontal = HORIZONTAL_PAD_16)
+//                ) { _ ->
+
+                Box(
                     modifier = Modifier
                         .fillMaxSize()
                         .background(color = extendedColor.black)
                         .windowInsetsPadding(WindowInsets.displayCutout)
-                        .padding(horizontal = HORIZONTAL_PAD_16)
-                ) { _ ->
+                        .padding(
+                            horizontal = HORIZONTAL_PAD_16,
+                            vertical = VERTICAL_PAD_16
+                        )
+                ) {
                     val navController = rememberNavController()
 
                     MainNavHost(navHostController = navController)
                 }
+//                }
             }
         }
     }

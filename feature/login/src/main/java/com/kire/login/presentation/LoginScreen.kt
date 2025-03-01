@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
@@ -23,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.kire.login.constant.LoginStrings.CONTINUE
 import com.kire.login.constant.LoginStrings.EMPLOYEES_SEARCH
@@ -32,8 +34,10 @@ import com.kire.login.constant.LoginStrings.LOGIN_VIA_PASSWORD
 import com.kire.login.constant.LoginStrings.POSTING_VACANCIES
 import com.kire.ui.Dimens.HORIZONTAL_PAD_24
 import com.kire.ui.Dimens.HORIZONTAL_PAD_44
+import com.kire.ui.Dimens.HORIZONTAL_PAD_8
 import com.kire.ui.Dimens.ROUNDED_CORNERS_50_PERCENT
 import com.kire.ui.Dimens.ROUNDED_CORNERS_8
+import com.kire.ui.Dimens.TEXTFIELD_HEIGHT
 import com.kire.ui.Dimens.VERTICAL_PAD_11
 import com.kire.ui.Dimens.VERTICAL_PAD_16
 import com.kire.ui.Dimens.VERTICAL_PAD_7
@@ -64,127 +68,146 @@ fun LoginScreen(
     /** Цвет текста кнопки Продолжить */
     val continueTextColor by remember {
         derivedStateOf {
-            if (state.text.isNotEmpty()) extendedColor.grey2 else extendedColor.white
+            if (state.text.isBlank()) extendedColor.grey4 else extendedColor.white
         }
     }
     /** Цвет фона кнопки Продолжить */
     val continueBackgroundColor by remember {
         derivedStateOf {
-            if (state.text.isNotEmpty()) extendedColor.darkBlue else extendedColor.blue
+            if (state.text.isBlank()) extendedColor.darkBlue else extendedColor.blue
         }
     }
 
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_16),
-        horizontalAlignment = Alignment.CenterHorizontally
+        contentAlignment = Alignment.Center
     ) {
-        // Плитка поиска работы
-        Tile {
-            Text(
-                text = JOB_SEARCH,
-                style = extendedType.title3
-            )
-
-            // Просто затычка
-            BasicTextField(
-                state = state,
-                decorator = { innerTextField ->
-                    Box(
-                        modifier = Modifier
-                            .background(extendedColor.grey2)
-                    ) {
-                        innerTextField()
-                    }
-                }
-            )
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(HORIZONTAL_PAD_24)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .wrapContentSize()
-                        .clip(RoundedCornerShape(ROUNDED_CORNERS_8))
-                        .drawBehind { drawRect(color = continueBackgroundColor) }
-                        .bounceClick {
-                            // TODO
-                        }
-                        .padding(
-                            vertical = VERTICAL_PAD_11,
-                            horizontal = HORIZONTAL_PAD_44
-                        ),
-                    contentAlignment = Alignment.Center
-                ) {
-                    BasicText(
-                        text = CONTINUE,
-                        color = { continueTextColor },
-                        style = extendedType.buttonText2,
-                    )
-                }
-
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .wrapContentHeight()
-                        .bounceClick {
-                            // TODO
-                        },
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = LOGIN_VIA_PASSWORD,
-                        color = extendedColor.blue,
-                        style = extendedType.buttonText2,
-                    )
-                }
-            }
-        }
-
-        // Плитка поиска сотрудников
-        Tile {
-            Column(
-                modifier = Modifier
-                    .wrapContentHeight()
-                    .fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_8),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+        Column(
+            modifier = Modifier
+                .wrapContentHeight()
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_16),
+            horizontalAlignment = Alignment.Start
+        ) {
+            // Плитка поиска работы
+            Tile {
                 Text(
-                    text = EMPLOYEES_SEARCH,
+                    text = JOB_SEARCH,
                     style = extendedType.title3,
                     color = extendedColor.white
                 )
 
-                Text(
-                    text = POSTING_VACANCIES,
-                    style = extendedType.buttonText2,
-                    color = extendedColor.white
+                // Просто затычка
+                BasicTextField(
+                    state = state,
+                    decorator = { innerTextField ->
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(TEXTFIELD_HEIGHT)
+                                .clip(RoundedCornerShape(ROUNDED_CORNERS_8))
+                                .background(extendedColor.grey2)
+                                .padding(horizontal = HORIZONTAL_PAD_8),
+                            contentAlignment = Alignment.CenterStart
+                        ) {
+                            innerTextField()
+                        }
+                    }
                 )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(HORIZONTAL_PAD_24)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .wrapContentSize()
+                            .then(
+                                // Делаем кнопку некликабельной, если BasicTextField пустой
+                                if (state.text.isBlank())
+                                    Modifier
+                                else Modifier
+                                    .bounceClick {
+                                        // TODO
+                                    }
+                            )
+                            .clip(RoundedCornerShape(ROUNDED_CORNERS_8))
+                            .drawBehind { drawRect(color = continueBackgroundColor) }
+                            .padding(
+                                vertical = VERTICAL_PAD_11,
+                                horizontal = HORIZONTAL_PAD_44
+                            ),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        BasicText(
+                            text = CONTINUE,
+                            color = { continueTextColor },
+                            style = extendedType.buttonText2,
+                        )
+                    }
+
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .wrapContentHeight()
+                            .bounceClick {
+                                // TODO
+                            },
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = LOGIN_VIA_PASSWORD,
+                            color = extendedColor.blue,
+                            style = extendedType.buttonText2,
+                        )
+                    }
+                }
             }
 
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .clip(RoundedCornerShape(ROUNDED_CORNERS_50_PERCENT))
-                    .background(extendedColor.green)
-                    .bounceClick {
-                        // Некоторое действие, которое по заданию не дано
-                    }
-                    .padding(vertical = VERTICAL_PAD_7),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = I_SEARCH_FOR_EMPLOYEES,
-                    style = extendedType.buttonText2,
-                    color = extendedColor.white
-                )
+            // Плитка поиска сотрудников
+            Tile {
+                Column(
+                    modifier = Modifier
+                        .wrapContentHeight()
+                        .fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_8),
+                    horizontalAlignment = Alignment.Start
+                ) {
+                    Text(
+                        text = EMPLOYEES_SEARCH,
+                        style = extendedType.title3,
+                        color = extendedColor.white
+                    )
+
+                    Text(
+                        text = POSTING_VACANCIES,
+                        style = extendedType.buttonText2,
+                        color = extendedColor.white
+                    )
+                }
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight()
+                        .bounceClick {
+                            // Некоторое действие, которое по заданию не дано
+                        }
+                        .clip(RoundedCornerShape(ROUNDED_CORNERS_50_PERCENT))
+                        .background(extendedColor.green)
+                        .padding(vertical = VERTICAL_PAD_7),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = I_SEARCH_FOR_EMPLOYEES,
+                        style = extendedType.buttonText2,
+                        color = extendedColor.white
+                    )
+                }
             }
         }
     }
