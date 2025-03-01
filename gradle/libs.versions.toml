@@ -2,6 +2,7 @@
 agp = "8.8.2"
 foundation = "1.7.8"
 googleDaggerCompiler = "2.42"
+javaxInject = "1"
 kotlin = "1.9.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -38,6 +39,7 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 androidx-ui-unit = { module = "androidx.compose.ui:ui-unit" }
 dagger = { module = "com.google.dagger:dagger", version.ref="dagger" }
 google-dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref="dagger"  }
+javax-inject = { module = "javax.inject:javax.inject", version.ref = "javaxInject" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
