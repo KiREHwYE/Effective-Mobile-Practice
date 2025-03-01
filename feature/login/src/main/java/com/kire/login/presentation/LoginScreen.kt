@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.navigation.NavHostController
 import com.kire.login.constant.LoginStrings.CONTINUE
 import com.kire.login.constant.LoginStrings.EMPLOYEES_SEARCH
 import com.kire.login.constant.LoginStrings.I_SEARCH_FOR_EMPLOYEES
@@ -51,6 +52,7 @@ import com.kire.ui.util.bounceClick
  */
 @Composable
 fun LoginScreen(
+    navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
 

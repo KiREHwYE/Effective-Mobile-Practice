@@ -36,6 +36,7 @@ dependencies {
 
     // Навигация
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.runtime.ktx)
 
     // Модули
     implementation(project(":core:ui"))
@@ -49,6 +50,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.runtime.android)
     implementation(libs.androidx.ui.android)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
