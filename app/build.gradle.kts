@@ -55,8 +55,10 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
-    implementation(project(":core:ui"))
     kapt(libs.google.dagger.compiler)
+
+    // Модули
+    implementation(project(":core:ui"))
 
     // Дефолтные зависимости
     implementation(libs.androidx.core.ktx)
