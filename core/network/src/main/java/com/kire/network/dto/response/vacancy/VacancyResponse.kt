@@ -8,8 +8,6 @@ import kotlinx.serialization.Serializable
  * @see AddressResponse
  * @see ExperienceResponse
  * @see SalaryResponse
- * @see SchedulesResponse
- * @see QuestionsResponse
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
