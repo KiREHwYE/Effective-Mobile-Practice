@@ -41,9 +41,15 @@ dependencies {
     implementation(libs.dagger)
     ksp(libs.google.dagger.compiler)
 
+    // Навигация
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.runtime.ktx)
+
     implementation(project(":core:network"))
     implementation(project(":core:di"))
     implementation(project(":core:util"))
+
+    implementation(libs.androidx.runtime.android)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
