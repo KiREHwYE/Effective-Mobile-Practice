@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
 import com.kire.ui.Dimens.HORIZONTAL_PAD_16
 
 import com.kire.ui.theme.EffectiveMobileExtendedPracticeTheme
@@ -35,7 +36,9 @@ class MainActivity : ComponentActivity() {
                         .windowInsetsPadding(WindowInsets.displayCutout)
                         .padding(horizontal = HORIZONTAL_PAD_16)
                 ) { _ ->
+                    val navController = rememberNavController()
 
+                    MainNavHost(navHostController = navController)
                 }
             }
         }
