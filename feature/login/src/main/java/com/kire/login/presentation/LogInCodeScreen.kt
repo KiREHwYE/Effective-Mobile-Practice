@@ -41,23 +41,24 @@ import com.kire.ui.util.bounceClick
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Composable
-fun LoginCodeScreen(
+fun LogInCodeScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
 
-    var isActive by remember { mutableStateOf(false) }
+    /** Флаг того, введен ли код или нет */
+    var isCodeCompleted by remember { mutableStateOf(false) }
 
     /** Цвет текста кнопки Продолжить */
     val continueTextColor by remember {
         derivedStateOf {
-            if (!isActive) extendedColor.grey4 else extendedColor.white
+            if (!isCodeCompleted) extendedColor.grey4 else extendedColor.white
         }
     }
     /** Цвет фона кнопки Продолжить */
     val continueBackgroundColor by remember {
         derivedStateOf {
-            if (!isActive) extendedColor.darkBlue else extendedColor.blue
+            if (!isCodeCompleted) extendedColor.darkBlue else extendedColor.blue
         }
     }
 
@@ -86,7 +87,7 @@ fun LoginCodeScreen(
             )
 
             CodeInputField {
-                isActive = it
+                isCodeCompleted = it
             }
 
             Box(
@@ -95,7 +96,7 @@ fun LoginCodeScreen(
                     .wrapContentHeight()
                     .then(
                         // Делаем кнопку некликабельной, если код не введен
-                        if (!isActive)
+                        if (!isCodeCompleted)
                             Modifier
                         else Modifier
                             .bounceClick {

@@ -52,11 +52,15 @@ import com.kire.ui.theme.extendedType
 fun CodeInputField(
     onCodeCompleted: (Boolean) -> Unit
 ) {
+    /** Длина кода */
     val codeLength = 4
+    /** Код с email, который вводит пользователь */
     val code = remember { mutableStateListOf("", "", "", "") }
+    /** Для управления фокусом */
     val focusManager = LocalFocusManager.current
     val focusRequesters = List(codeLength) { FocusRequester() }
 
+    /** true, если код введен, false, если нет */
     val isCodeComplete by remember {
         derivedStateOf { code.all { it.isNotEmpty() } }
     }

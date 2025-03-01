@@ -63,10 +63,13 @@ fun LoginScreen(
     modifier: Modifier = Modifier
 ) {
 
+    // Заголовок экрана
     Topbar()
 
+    /** Состояние поля ввода, в которое пользователь вводит почту*/
     val state = rememberTextFieldState("")
     val interactionSource = remember { MutableInteractionSource() }
+    /** Чтобы убирать hint, если пользователь тапнул по полю ввода*/
     val isFocused by interactionSource.collectIsFocusedAsState()
 
     /** Цвет текста кнопки Продолжить */
@@ -167,7 +170,6 @@ fun LoginScreen(
                             .wrapContentHeight()
                             .bounceClick {
                                 // По макету и тех.заданию не дано
-                                // TODO
                             },
                         contentAlignment = Alignment.Center
                     ) {
