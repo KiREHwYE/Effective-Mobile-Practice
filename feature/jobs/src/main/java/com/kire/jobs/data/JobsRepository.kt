@@ -1,14 +1,14 @@
 package com.kire.jobs.data
 
-import com.kire.network.ErrorsResponse
-import com.kire.network.api.IApiService
+import com.kire.jobs.data.mapper.offer.toDomain
 import com.kire.jobs.domain.IJobsRepository
 import com.kire.jobs.domain.model.IRequestResultDomain
-import javax.inject.Inject
-
+import com.kire.network.ErrorsResponse
+import com.kire.network.api.IApiService
 import com.kire.util.IODispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 /**
  * Репозиторий для работы с предложениями для пользователя и вакансиями
@@ -35,7 +35,7 @@ class JobsRepository @Inject constructor(
      */
     override suspend fun getVacancies(): IRequestResultDomain =
         makeRequest {
-            apiService.getMockData().vacancies
+            apiService.getMockData().vacancies.toDomain()
         }
 
     /**
@@ -50,7 +50,7 @@ class JobsRepository @Inject constructor(
      */
     override suspend fun getOffers(): IRequestResultDomain =
         makeRequest {
-            apiService.getMockData().offers
+            apiService.getMockData().offers.toDomain()
         }
 
     /**
