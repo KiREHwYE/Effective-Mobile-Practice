@@ -4,6 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import com.kire.login.presentation.LoginCodeScreen
 import com.kire.login.presentation.LoginScreen
 
 /**
@@ -13,5 +14,5 @@ import com.kire.login.presentation.LoginScreen
  */
 fun NavGraphBuilder.loginNavGraph(navController: NavHostController) {
     composable(LoginRoutes.Login.route) { LoginScreen(navController) }
-    composable(LoginRoutes.LoginCode.route) {  }
+    composable(LoginRoutes.LoginCode.route) { LoginCodeScreen(navController) }
 }
