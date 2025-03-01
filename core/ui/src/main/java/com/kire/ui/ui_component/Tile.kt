@@ -18,12 +18,14 @@ import com.kire.ui.Dimens.VERTICAL_PAD_24
  * функциональных компонентов приложения.
  * Например, плитка вакансии.
  *
+ * @param modifier модификатор
  * @param content содержимое плитки
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Composable
 fun Tile(
+    modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
     Box(
