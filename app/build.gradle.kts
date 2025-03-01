@@ -60,6 +60,10 @@ dependencies {
     // Модули
     implementation(project(":core:ui"))
 
+    // Навигация
+    implementation(libs.navigation.compose)
+    implementation(libs.androidx.navigation.runtime.ktx)
+
     // Дефолтные зависимости
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
