@@ -58,7 +58,7 @@ import com.kire.ui.util.bounceClick
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Composable
-fun LoginScreen(
+fun LogInScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
