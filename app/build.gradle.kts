@@ -56,6 +56,7 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
+    implementation(project(":core:network"))
     ksp(libs.google.dagger.compiler)
 
     // Модули
