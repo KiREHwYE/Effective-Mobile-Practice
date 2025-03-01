@@ -1,6 +1,10 @@
 package com.kire.login.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.foundation.interaction.collectIsHoveredAsState
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,11 +31,13 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.kire.login.constant.LoginStrings.CONTINUE
+import com.kire.login.constant.LoginStrings.EMAIL_HINT
 import com.kire.login.constant.LoginStrings.EMPLOYEES_SEARCH
 import com.kire.login.constant.LoginStrings.I_SEARCH_FOR_EMPLOYEES
 import com.kire.login.constant.LoginStrings.JOB_SEARCH
 import com.kire.login.constant.LoginStrings.LOGIN_VIA_PASSWORD
 import com.kire.login.constant.LoginStrings.POSTING_VACANCIES
+import com.kire.login.navigation.LoginRoutes
 import com.kire.ui.Dimens.HORIZONTAL_PAD_24
 import com.kire.ui.Dimens.HORIZONTAL_PAD_44
 import com.kire.ui.Dimens.HORIZONTAL_PAD_8
@@ -62,8 +68,9 @@ fun LoginScreen(
 
     Topbar()
 
-    /** Просто затычка */
     val state = rememberTextFieldState("")
+    val interactionSource = remember { MutableInteractionSource() }
+    val isFocused by interactionSource.collectIsFocusedAsState()
 
     /** Цвет текста кнопки Продолжить */
     val continueTextColor by remember {
@@ -98,9 +105,9 @@ fun LoginScreen(
                     color = extendedColor.white
                 )
 
-                // Просто затычка
                 BasicTextField(
                     state = state,
+                    interactionSource = interactionSource,
                     decorator = { innerTextField ->
                         Box(
                             modifier = Modifier
@@ -111,7 +118,14 @@ fun LoginScreen(
                                 .padding(horizontal = HORIZONTAL_PAD_8),
                             contentAlignment = Alignment.CenterStart
                         ) {
-                            innerTextField()
+                            if (state.text.isNotBlank() || isFocused)
+                                innerTextField()
+                            else
+                                Text(
+                                    text = EMAIL_HINT,
+                                    style = extendedType.buttonText2,
+                                    color = extendedColor.grey4
+                                )
                         }
                     }
                 )
@@ -132,7 +146,7 @@ fun LoginScreen(
                                     Modifier
                                 else Modifier
                                     .bounceClick {
-                                        // TODO
+                                        navController.navigate(LoginRoutes.LoginCode.route)
                                     }
                             )
                             .clip(RoundedCornerShape(ROUNDED_CORNERS_8))
@@ -155,6 +169,7 @@ fun LoginScreen(
                             .weight(1f)
                             .wrapContentHeight()
                             .bounceClick {
+                                // По макету и тех.заданию не дано
                                 // TODO
                             },
                         contentAlignment = Alignment.Center
