@@ -59,6 +59,7 @@ dependencies {
 
     // Модули
     implementation(project(":core:ui"))
+    implementation(project(":feature:login"))
 
     // Навигация
     implementation(libs.navigation.compose)
