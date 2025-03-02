@@ -5,6 +5,7 @@ import com.kire.favourites.domain.IFavoriteRepository
 import com.kire.favourites.domain.usecase.FavoriteUseCases
 import com.kire.favourites.domain.usecase.GetFavoriteUseCase
 import com.kire.favourites.domain.usecase.IFavoriteUseCases
+import com.kire.favourites.presentation.viewmodel.FavoriteViewModelFactory
 import com.kire.network.api.IApiService
 import com.kire.util.IODispatcher
 

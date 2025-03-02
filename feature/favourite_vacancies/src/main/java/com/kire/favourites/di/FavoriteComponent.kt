@@ -3,6 +3,7 @@ package com.kire.favourites.di
 import com.kire.di.CoroutineModule
 import com.kire.favourites.domain.IFavoriteRepository
 import com.kire.favourites.domain.usecase.IFavoriteUseCases
+import com.kire.favourites.presentation.viewmodel.FavoriteViewModelFactory
 import com.kire.network.di.NetworkModule
 import com.kire.network.di.NetworkComponent
 
