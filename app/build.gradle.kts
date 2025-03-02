@@ -63,6 +63,7 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":feature:login"))
     implementation(project(":feature:jobs"))
+    implementation(project(":feature:favourite_vacancies"))
 
     // Навигация
     implementation(libs.navigation.compose)
