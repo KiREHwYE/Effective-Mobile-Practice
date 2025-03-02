@@ -11,9 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import com.kire.jobs.presentation.constant.JobsStrings.APPLY_FOR
 import com.kire.ui.Dimens.ROUNDED_CORNERS_8
 import com.kire.ui.Dimens.VERTICAL_PAD_14
+import com.kire.ui.Strings.APPLY_FOR
 import com.kire.ui.theme.ExtendedTheme.extendedColor
 import com.kire.ui.theme.ExtendedTheme.extendedType
 

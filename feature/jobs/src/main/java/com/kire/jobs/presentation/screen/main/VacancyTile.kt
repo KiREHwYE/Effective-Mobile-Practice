@@ -15,14 +15,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
-import com.kire.jobs.presentation.constant.JobsStrings.APPLY_FOR
-import com.kire.jobs.presentation.constant.JobsStrings.NOW_LOOKING
-import com.kire.jobs.presentation.constant.JobsStrings.PUBLISHED
 import com.kire.jobs.presentation.model.vacancy.Vacancy
 import com.kire.ui.Dimens.HORIZONTAL_PAD_8
 import com.kire.ui.Dimens.VERTICAL_PAD_10
 import com.kire.ui.Dimens.VERTICAL_PAD_21
 import com.kire.ui.Dimens.VERTICAL_PAD_4
+import com.kire.ui.Strings.APPLY_FOR
+import com.kire.ui.Strings.NOW_LOOKING
+import com.kire.ui.Strings.PUBLISHED
 import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
 import com.kire.ui.ui_component.GreenButton
