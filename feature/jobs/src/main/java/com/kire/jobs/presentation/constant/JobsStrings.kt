@@ -14,4 +14,5 @@ object JobsStrings {
     const val MORE = "Еще "
     const val VACANCIES = " вакансий"
     const val BY_RELEVANCY = "По соответствию"
+    const val YOUR_TASKS = "Ваши задачи"
 }
