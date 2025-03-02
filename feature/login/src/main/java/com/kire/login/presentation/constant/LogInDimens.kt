@@ -1,4 +1,4 @@
-package com.kire.login.constant
+package com.kire.login.presentation.constant
 
 import androidx.compose.ui.unit.dp
 
