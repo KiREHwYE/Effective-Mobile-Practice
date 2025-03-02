@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.kire.favourites.presentation.viewmodel.FavoriteViewModel
 import com.kire.jobs.di.DaggerJobsComponent
 import com.kire.jobs.presentation.viewmodel.JobsViewModel
 import com.kire.network.di.DaggerNetworkComponent
@@ -29,6 +30,16 @@ class MainActivity : ComponentActivity() {
             .build()
 
         jobsComponent.provideJobsViewModelFactory()
+    }
+
+    private val favoriteViewModel: FavoriteViewModel by viewModels {
+        val networkComponent = DaggerNetworkComponent.create()
+
+        val favoriteComponent = DaggerFavoriteComponent.builder()
+            .networkComponent(networkComponent)
+            .build()
+
+        favoriteComponent.provideFavoriteViewModelFactory()
     }
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -65,7 +76,8 @@ class MainActivity : ComponentActivity() {
 
                     MainNavHost(
                         navHostController = navController,
-                        jobsViewModel = jobsViewModel
+                        jobsViewModel = jobsViewModel,
+                        favoriteViewModel = favoriteViewModel
                     )
                 }
             }
