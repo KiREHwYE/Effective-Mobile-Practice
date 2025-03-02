@@ -15,6 +15,7 @@ object Dimens {
     val HORIZONTAL_PAD_44 = 44.dp
 
     val VERTICAL_PAD_4 = 4.dp
+    val VERTICAL_PAD_5 = 5.dp
     val VERTICAL_PAD_7 = 7.dp
     val VERTICAL_PAD_8 = 8.dp
     val VERTICAL_PAD_11 = 11.dp
