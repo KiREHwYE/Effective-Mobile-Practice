@@ -81,7 +81,8 @@ fun Search(
                         Text(
                             text = SEARCH_HINT,
                             style = extendedType.buttonText2,
-                            color = com.kire.ui.theme.extendedColor.grey4
+                            color = com.kire.ui.theme.extendedColor.grey4,
+                            modifier = Modifier.padding(start = HORIZONTAL_PAD_8)
                         )
                 }
             },
