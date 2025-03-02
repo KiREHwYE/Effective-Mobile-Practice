@@ -9,4 +9,5 @@ package com.kire.jobs.navigation
  */
 sealed class JobsRoutes(val route: String) {
     object Main: JobsRoutes("main")
+    object Vacancy: JobsRoutes("vacancy_page")
 }
