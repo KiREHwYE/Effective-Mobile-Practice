@@ -67,7 +67,7 @@ fun VacanciesBlock(
                 .fillMaxWidth()
                 .wrapContentHeight(),
             contentPadding = PaddingValues(bottom = VERTICAL_PAD_16),
-            verticalArrangement = Arrangement.Top
+            verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_16)
         ) {
             items(vacancies) { vacancy ->
 
@@ -104,8 +104,8 @@ fun VacanciesBlock(
                                 ),
                                 contentDescription = "Heart" ,
                                 tint = if (vacancy.isFavorite == true)
-                                    extendedColor.grey2
-                                else extendedColor.blue
+                                    extendedColor.blue
+                                else extendedColor.grey2
                             )
                         }
 
