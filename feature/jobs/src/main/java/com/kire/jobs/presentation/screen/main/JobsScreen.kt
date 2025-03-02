@@ -130,7 +130,7 @@ fun JobsScreen(
                             OffersCarousel(
                                 offers = offers
                             )
-                        else if (jobsScreenState.equals(JobsScreenState.ONLY_THREE_SHOWN))
+                        else if (jobsScreenState.equals(JobsScreenState.ALL_SHOWN))
                             Sorting(
                                 vacanciesNumber = vacancies.size,
                                 onSort = { sortParam ->
@@ -153,7 +153,11 @@ fun JobsScreen(
         }
 
         // Плитки вакансий
-        items(vacancies.take(VACANCIES_TO_SHOW)) { vacancy ->
+        items(
+            if (jobsScreenState.equals(JobsScreenState.ONLY_THREE_SHOWN))
+                vacancies.take(VACANCIES_TO_SHOW)
+            else vacancies
+        ) { vacancy ->
             VacancyTile(
                 vacancy = vacancy,
                 onTileClick = {
