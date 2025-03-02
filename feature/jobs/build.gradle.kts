@@ -26,6 +26,12 @@ android {
             )
         }
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -39,6 +45,7 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
+    implementation(libs.androidx.material3.android)
     ksp(libs.google.dagger.compiler)
 
     // Навигация
@@ -51,6 +58,8 @@ dependencies {
     implementation(project(":core:util"))
 
     implementation(libs.androidx.runtime.android)
+    implementation(libs.androidx.ui.android)
+    implementation(libs.material3)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
