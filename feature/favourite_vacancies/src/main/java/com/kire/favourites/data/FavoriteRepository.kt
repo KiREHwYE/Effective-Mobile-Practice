@@ -1,10 +1,8 @@
 package com.kire.favourites.data
 
+import com.kire.favourites.data.mapper.vacancy.toDomain
 import com.kire.favourites.domain.IFavoriteRepository
 import com.kire.favourites.domain.model.IRequestResultDomain
-import com.kire.jobs.data.mapper.offer.toDomain
-import com.kire.jobs.domain.IJobsRepository
-import com.kire.jobs.domain.model.IRequestResultDomain
 import com.kire.network.ErrorsResponse
 import com.kire.network.api.IApiService
 import com.kire.util.IODispatcher
