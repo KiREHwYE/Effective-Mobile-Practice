@@ -78,7 +78,7 @@ fun OffersCarousel(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(horizontal = -HORIZONTAL_PAD_8), // Чтобы убрать паддинг, навязанный родительским компонентом
+            .padding(horizontal = HORIZONTAL_PAD_8),
         horizontalArrangement = Arrangement.spacedBy(HORIZONTAL_PAD_8),
         verticalAlignment = Alignment.CenterVertically
     ) {
