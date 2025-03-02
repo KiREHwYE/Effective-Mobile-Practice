@@ -27,7 +27,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(dependencies = [NetworkComponent::class], modules = [FavoriteModule::class, CoroutineModule::class])
 interface FavoriteComponent {
-    fun provideJobsRepository(): IFavoriteRepository
-    fun provideJobsUseCases(): IFavoriteUseCases
-    fun provideJobsViewModelFactory(): FavoriteViewModelFactory
+    fun provideFavoriteRepository(): IFavoriteRepository
+    fun provideFavoriteUseCases(): IFavoriteUseCases
+    fun provideFavoriteViewModelFactory(): FavoriteViewModelFactory
 }
