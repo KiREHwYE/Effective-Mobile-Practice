@@ -41,6 +41,7 @@ import com.kire.vacancies.R
  *  @param modifier модификатор
  *  @param vacancy информация о вакансии
  *  @param onTileClick действие при клике на плитку вакансии
+ *  @param onHeartClick действие по нажатию на сердечко
  *
  *  @author Михаил Гонтарев (KiREHwYE)
  */
@@ -48,7 +49,8 @@ import com.kire.vacancies.R
 fun VacancyTile(
     modifier: Modifier = Modifier,
     vacancy: Vacancy = Vacancy(),
-    onTileClick: () -> Unit = {}
+    onTileClick: () -> Unit = {},
+    onHeartClick: () -> Unit = {}
 ) {
 
     Tile(
@@ -159,7 +161,7 @@ fun VacancyTile(
                 modifier = Modifier
                     .align(Alignment.TopEnd)
                     .bounceClick {
-                        // TODO
+                        onHeartClick()
                     }
             )
         }
