@@ -16,42 +16,28 @@ import com.kire.ui.theme.extendedType
 
 /**
  * Топбар экрана с вакансиями и предложениями.
- * Содержит поиск, кнопку фильтра, карусель предложений
- * и текст "Вакансии для вас"
+ * Содержит поиск и кнопку фильтра, а так дополнительный блок
  *
  * @param modifier модификатор
  * @param search поиск и кнопка фильтра
- * @param offersCarousel карусель плиток предложений для пользователся
+ * @param additional дополнительный контент для отрисовки под поиском
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Composable
-fun TopbarWithOffers(
+fun Topbar(
     modifier: Modifier = Modifier,
     search: @Composable () -> Unit = {},
-    offersCarousel: @Composable () -> Unit = {}
+    additional: @Composable () -> Unit = {}
 ){
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight(),
-        verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_32)
+        verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_16),
+        horizontalAlignment = Alignment.Start
     ) {
-        Column(
-            modifier = modifier
-                .fillMaxWidth()
-                .wrapContentHeight(),
-            verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_16),
-            horizontalAlignment = Alignment.Start
-        ) {
-            search()
-            offersCarousel()
-        }
-
-        Text(
-            text = VACANCIES_FOR_YOU,
-            style = extendedType.title2,
-            color = extendedColor.white
-        )
+        search()
+        additional()
     }
 }
