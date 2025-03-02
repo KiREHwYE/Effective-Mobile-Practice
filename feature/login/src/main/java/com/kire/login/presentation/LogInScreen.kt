@@ -36,19 +36,19 @@ import com.kire.login.presentation.constant.LogInStrings.JOB_SEARCH
 import com.kire.login.presentation.constant.LogInStrings.LOGIN_VIA_PASSWORD
 import com.kire.login.presentation.constant.LogInStrings.POSTING_VACANCIES
 import com.kire.login.navigation.LogInRoutes
+import com.kire.login.presentation.constant.LogInStrings.LOGIN_TO_ACCOUNT
 import com.kire.ui.Dimens.HORIZONTAL_PAD_24
 import com.kire.ui.Dimens.HORIZONTAL_PAD_44
 import com.kire.ui.Dimens.HORIZONTAL_PAD_8
-import com.kire.ui.Dimens.ROUNDED_CORNERS_50_PERCENT
 import com.kire.ui.Dimens.ROUNDED_CORNERS_8
 import com.kire.ui.Dimens.VERTICAL_PAD_11
 import com.kire.ui.Dimens.VERTICAL_PAD_16
-import com.kire.ui.Dimens.VERTICAL_PAD_7
 import com.kire.ui.Dimens.VERTICAL_PAD_8
 import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
 import com.kire.ui.ui_component.GreenButton
 import com.kire.ui.ui_component.Tile
+import com.kire.ui.ui_component.Topbar
 import com.kire.ui.util.bounceClick
 
 /**
@@ -65,7 +65,7 @@ fun LogInScreen(
 ) {
 
     // Заголовок экрана
-    Topbar()
+    Topbar(text = LOGIN_TO_ACCOUNT)
 
     /** Состояние поля ввода, в которое пользователь вводит почту*/
     val state = rememberTextFieldState("")

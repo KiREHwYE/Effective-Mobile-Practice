@@ -1,4 +1,4 @@
-package com.kire.login.presentation
+package com.kire.ui.ui_component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,7 +8,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.kire.login.presentation.constant.LogInStrings.LOGIN_TO_ACCOUNT
 import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
 
@@ -21,7 +20,8 @@ import com.kire.ui.theme.extendedType
  */
 @Composable
 fun Topbar(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    text: String = ""
 ) {
 
     Box(
@@ -36,7 +36,7 @@ fun Topbar(
             contentAlignment = Alignment.BottomStart
         ) {
             Text(
-                text =  LOGIN_TO_ACCOUNT,
+                text =  text,
                 style = extendedType.title2,
                 color = extendedColor.white
             )
