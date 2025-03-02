@@ -39,7 +39,8 @@ import com.kire.vacancies.R
  */
 @Composable
 fun Search(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    icon: @Composable () -> Unit
 ){
     /** Состояние поля ввода, в которое пользователь вводит почту*/
     val state = rememberTextFieldState("")
@@ -69,11 +70,7 @@ fun Search(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
                 ) {
-                    Icon(
-                        painter = painterResource(R.drawable.search),
-                        contentDescription = "Search",
-                        tint = extendedColor.grey4
-                    )
+                    icon()
 
                     if (state.text.isNotBlank() || isFocused)
                         innerTextField()
