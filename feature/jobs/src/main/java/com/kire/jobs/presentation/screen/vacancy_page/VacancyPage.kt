@@ -1,12 +1,17 @@
 package com.kire.jobs.presentation.screen.vacancy_page
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.kire.jobs.presentation.viewmodel.JobsViewModel
@@ -29,6 +34,7 @@ fun VacancyPage(
     vacancyId: String? = null
 ) {
 
+    var isSheetVisible by remember { mutableStateOf(false) }
     val vacancy = jobsViewModel.getVacancyById(vacancyId)
 
     Column(
@@ -50,8 +56,21 @@ fun VacancyPage(
 
         VacancyResponsibilities(vacancy)
         VacancyQuestions(vacancy)
-        VacancyApplyButton()
+        VacancyApplyButton(
+            onClick = {
+                isSheetVisible = true
+            }
+        )
     }
+
+    Box(Modifier.fillMaxSize()) {
+        VacancyApplyBottomSheet(
+            isVisible = isSheetVisible,
+            vacancyTitle = vacancy.title ?: "",
+            onDismiss = { isSheetVisible = false }
+        )
+    }
+
 }
 
 
