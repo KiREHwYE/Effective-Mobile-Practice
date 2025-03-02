@@ -25,8 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.currentBackStackEntryAsState
-import com.kire.jobs.navigation.JobsRoutes
+import com.kire.favourites.navigation.FavoriteRoutes
 import com.kire.ui.Dimens.HORIZONTAL_PAD_14
 import com.kire.ui.Dimens.VERTICAL_PAD_3
 import com.kire.ui.Dimens.VERTICAL_PAD_6
@@ -110,7 +109,7 @@ private fun BottomTab(
             )
 
             // Кружок с количеством вакансий в избранном
-            if (favoriteCount > 0 && destination.route == JobsRoutes.Main.route) {
+            if (favoriteCount > 0 && destination.route == FavoriteRoutes.Favorite.route) {
                 Box(
                     modifier = Modifier
                         .size(13.dp)
