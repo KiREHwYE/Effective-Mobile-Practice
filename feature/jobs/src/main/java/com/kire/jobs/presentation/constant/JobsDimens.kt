@@ -1,0 +1,13 @@
+package com.kire.jobs.presentation.constant
+
+import androidx.compose.ui.unit.dp
+
+/**
+ * Содержит информацию о паддингах, отступах
+ * и размерах в dp экранов с вакансиями и предложениями
+ *
+ * @author Михаил Гонтарев (KiREHwYE)
+ */
+object JobsDimens {
+    val FILTER_SIZE = 40.dp
+}
