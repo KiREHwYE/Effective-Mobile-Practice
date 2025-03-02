@@ -77,7 +77,6 @@ fun JobsScreen(
 
     LazyColumn(
         modifier = Modifier
-            .ignoreVerticalParentPadding(VERTICAL_PAD_16)
             .fillMaxSize()
             .padding(top = VERTICAL_PAD_16),
         contentPadding = PaddingValues(bottom = VERTICAL_PAD_16),
