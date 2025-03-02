@@ -1,6 +1,7 @@
 package com.kire.effectivemobilepractice
 
 import androidx.annotation.DrawableRes
+import com.kire.favourites.navigation.FavoriteRoutes
 import com.kire.jobs.navigation.JobsRoutes
 
 /**
@@ -18,7 +19,7 @@ enum class MenuDestinations (
     @DrawableRes val icon: Int,
 ) {
     JOBS(JobsRoutes.Main.route, "Поиск", R.drawable.search_menu),
-    FAVORITE(JobsRoutes.Main.route, "Избранное", R.drawable.favorite_menu),
+    FAVORITE(FavoriteRoutes.Favorite.route, "Избранное", R.drawable.favorite_menu),
     RESPONDS(null, "Отклики", R.drawable.responds_menu),
     MESSAGES(null, "Сообщения", R.drawable.messages_menu),
     PROFILE(null, "Профиль", R.drawable.profile_menu)
