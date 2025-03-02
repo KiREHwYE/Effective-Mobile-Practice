@@ -17,4 +17,6 @@ object JobsStrings {
     const val YOUR_TASKS = "Ваши задачи"
     const val ASK_QUESTIONS = "Задайте вопрос работодателю"
     const val HE_GETS_IT = "Он получит его с откликом на вакансию"
+    const val RESUME_FOR_APPLY = "Резюме для отклика"
+    const val ADD_COVER_LETTER = "Добавить сопроводительное"
 }

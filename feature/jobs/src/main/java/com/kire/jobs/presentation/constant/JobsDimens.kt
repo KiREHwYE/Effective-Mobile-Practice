@@ -16,4 +16,5 @@ object JobsDimens {
 
     val VACANCY_PAGE_SMALL_ICON_SIZE = 16.dp
     val STATS_BADGE_HEIGHT = 50.dp
+    val AVATAR_SIZE = 48.dp
 }

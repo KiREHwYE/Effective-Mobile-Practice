@@ -23,11 +23,12 @@ object Dimens {
     val VERTICAL_PAD_6 = 6.dp
     val VERTICAL_PAD_7 = 7.dp
     val VERTICAL_PAD_8 = 8.dp
+    val VERTICAL_PAD_10 = 10.dp
     val VERTICAL_PAD_11 = 11.dp
-    val VERTICAL_PAD_10 = 16.dp
     val VERTICAL_PAD_14 = 14.dp
     val VERTICAL_PAD_16 = 16.dp
     val VERTICAL_PAD_21 = 21.dp
+    val VERTICAL_PAD_20 = 20.dp
     val VERTICAL_PAD_24 = 24.dp
     val VERTICAL_PAD_32 = 32.dp
 
