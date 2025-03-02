@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.kire.jobs.navigation.JobsRoutes
 import com.kire.jobs.presentation.constant.Amounts.VACANCIES_TO_SHOW
 import com.kire.jobs.presentation.constant.JobsStrings.MORE
 import com.kire.jobs.presentation.constant.JobsStrings.VACANCIES
@@ -155,6 +156,9 @@ fun JobsScreen(
         items(vacancies.take(VACANCIES_TO_SHOW)) { vacancy ->
             VacancyTile(
                 vacancy = vacancy,
+                onTileClick = {
+                    navController.navigate(JobsRoutes.Vacancy.route + "/${vacancy.id}")
+                },
                 onHeartClick = {
                     vacancy.id?.let { id ->
                         jobsViewModel.OnEvent(
