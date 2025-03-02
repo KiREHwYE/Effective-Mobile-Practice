@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+    // KSP
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
 }
 
 android {
@@ -23,6 +26,12 @@ android {
             )
         }
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -33,6 +42,23 @@ android {
 }
 
 dependencies {
+
+    // Модули
+    implementation(project(":core:network"))
+
+    // Dagger
+    implementation(libs.dagger)
+    implementation(project(":core:util"))
+    ksp(libs.google.dagger.compiler)
+
+    // Навигация
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.runtime.ktx)
+
+    implementation(libs.androidx.runtime.android)
+    implementation(libs.androidx.ui.android)
+    implementation(libs.material3)
+    implementation(libs.androidx.material3.android)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
