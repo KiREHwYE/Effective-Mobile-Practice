@@ -8,9 +8,6 @@ package com.kire.jobs.presentation.constant
 object JobsStrings {
     const val SEARCH_HINT = "Должность, ключевые слова"
     const val VACANCIES_FOR_YOU = "Вакансии для вас"
-    const val NOW_LOOKING = "Сейчас просматривает "
-    const val PUBLISHED = "Опубликовано "
-    const val APPLY_FOR = "Откликнуться"
     const val MORE = "Еще "
     const val VACANCIES = " вакансий"
     const val BY_RELEVANCY = "По соответствию"
