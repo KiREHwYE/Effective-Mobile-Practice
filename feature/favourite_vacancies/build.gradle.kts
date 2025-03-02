@@ -45,10 +45,11 @@ dependencies {
 
     // Модули
     implementation(project(":core:network"))
+    implementation(project(":core:util"))
+    implementation(project(":core:di"))
 
     // Dagger
     implementation(libs.dagger)
-    implementation(project(":core:util"))
     ksp(libs.google.dagger.compiler)
 
     // Навигация
