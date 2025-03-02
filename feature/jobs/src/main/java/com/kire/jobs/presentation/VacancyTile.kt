@@ -61,114 +61,106 @@ fun VacancyTile(
             },
         verticalArrangementDp = VERTICAL_PAD_21
     ) {
-        Column(
-            modifier
-                .fillMaxWidth()
-                .wrapContentHeight(),
-            verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_10)
+        Box(
+            modifier = Modifier.fillMaxWidth()
         ) {
-            // Сколько людей просматривает и иконка сердечка
-            Row(
-                modifier = Modifier
+            Column(
+                modifier
                     .fillMaxWidth()
-                    .height(IntrinsicSize.Max),
-                verticalAlignment = Alignment.Top,
-                horizontalArrangement = Arrangement.SpaceBetween
+                    .wrapContentHeight(),
+                verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_10)
             ) {
-                Box(
+                // Сколько людей просматривает и иконка сердечка
+                vacancy.lookingNumber?.let {
+                    Text(
+                        text = NOW_LOOKING + it + " " + it.getPeopleDeclension(),
+                        style = extendedType.text1,
+                        color = extendedColor.green
+                    )
+                }
+
+                // Название вакансии
+                Text(
+                    text = vacancy.title ?: "",
+                    style = extendedType.title3,
+                    color = extendedColor.white
+                )
+
+                // Адрес, название компании и значок аккредитации
+                Column(
                     modifier = Modifier
-                        .weight(1f)
+                        .fillMaxWidth()
+                        .wrapContentHeight(),
+                    horizontalAlignment = Alignment.Start,
+                    verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_4)
                 ) {
-                    vacancy.lookingNumber?.let {
+                    Text(
+                        text = vacancy.address.town ?: "",
+                        style = extendedType.text1,
+                        color = extendedColor.white
+                    )
+
+                    Row(
+                        modifier = Modifier
+                            .wrapContentSize(),
+                        horizontalArrangement = Arrangement.spacedBy(HORIZONTAL_PAD_8)
+                    ) {
                         Text(
-                            text = NOW_LOOKING + it + " " + it.getPeopleDeclension(),
+                            text = vacancy.company ?: "",
                             style = extendedType.text1,
-                            color = extendedColor.green
+                            color = extendedColor.white
+                        )
+
+                        Icon(
+                            painter = painterResource(R.drawable.accreditation),
+                            contentDescription = "Accreditation",
+                            tint = extendedColor.grey3
                         )
                     }
                 }
 
-                Icon(
-                    painter = painterResource(
-                        if (vacancy.isFavorite == true)
-                            R.drawable.filled_heart
-                        else R.drawable.unfilled_heart
-                    ),
-                    contentDescription = "Heart" ,
-                    tint = if (vacancy.isFavorite == true)
-                        extendedColor.blue
-                    else extendedColor.white,
-                    modifier = Modifier
-                        .bounceClick {
-                            // TODO
-                        }
-                )
-            }
-
-            // Название вакансии
-            Text(
-                text = vacancy.title ?: "",
-                style = extendedType.title3,
-                color = extendedColor.white
-            )
-
-            // Адрес, название компании и значок аккредитации
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight(),
-                horizontalAlignment = Alignment.Start,
-                verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_4)
-            ) {
-                Text(
-                    text = vacancy.address.town ?: "",
-                    style = extendedType.text1,
-                    color = extendedColor.white
-                )
-
+                // Иконка портфеля и опыт работы
                 Row(
                     modifier = Modifier
                         .wrapContentSize(),
                     horizontalArrangement = Arrangement.spacedBy(HORIZONTAL_PAD_8)
                 ) {
+
+                    Icon(
+                        painter = painterResource(R.drawable.briefcase),
+                        contentDescription = "Accreditation",
+                        tint = extendedColor.white
+                    )
+
                     Text(
-                        text = vacancy.company ?: "",
+                        text = vacancy.experience.previewText ?: "",
                         style = extendedType.text1,
                         color = extendedColor.white
                     )
-
-                    Icon(
-                        painter = painterResource(R.drawable.accreditation),
-                        contentDescription = "Accreditation",
-                        tint = extendedColor.grey3
-                    )
                 }
-            }
-
-            // Иконка портфеля и опыт работы
-            Row(
-                modifier = Modifier
-                    .wrapContentSize(),
-                horizontalArrangement = Arrangement.spacedBy(HORIZONTAL_PAD_8)
-            ) {
-
-                Icon(
-                    painter = painterResource(R.drawable.briefcase),
-                    contentDescription = "Accreditation",
-                    tint = extendedColor.white
-                )
 
                 Text(
-                    text = vacancy.experience.previewText ?: "",
+                    text = PUBLISHED + vacancy.publishedDate?.formatDate(),
                     style = extendedType.text1,
-                    color = extendedColor.white
+                    color = extendedColor.grey3
                 )
             }
 
-            Text(
-                text = PUBLISHED + vacancy.publishedDate?.formatDate(),
-                style = extendedType.text1,
-                color = extendedColor.grey3
+            Icon(
+                painter = painterResource(
+                    if (vacancy.isFavorite == true)
+                        R.drawable.filled_heart
+                    else R.drawable.unfilled_heart
+                ),
+                contentDescription = "Heart",
+                tint = if (vacancy.isFavorite == true)
+                    extendedColor.blue
+                else extendedColor.white,
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .bounceClick {
+                        // TODO
+                    }
             )
         }
 
