@@ -35,6 +35,10 @@ class JobsViewModel(
     private val _offers: MutableStateFlow<List<Offer>> = MutableStateFlow(emptyList())
     val offers: StateFlow<List<Offer>> = _offers.asStateFlow()
 
+    fun getVacancyById(id: String?) =
+        _vacancies.value.first { it.id == id }
+
+
     fun OnEvent(event: JobsUiEvent) {
         when(event) {
             is JobsUiEvent.onHeartClick -> {
