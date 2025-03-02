@@ -11,8 +11,12 @@ import java.util.Locale
  */
 fun String.formatDate(): String {
     val inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale("ru"))
-    val outputFormatter = DateTimeFormatter.ofPattern("d MMMM", Locale("ru"))
-
     val date = LocalDate.parse(this, inputFormatter)
-    return date.format(outputFormatter)
+
+    val months = listOf(
+        "", "января", "февраля", "марта", "апреля", "мая", "июня",
+        "июля", "августа", "сентября", "октября", "ноября", "декабря"
+    )
+
+    return "${date.dayOfMonth} ${months[date.monthValue]}"
 }
