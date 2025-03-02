@@ -1,6 +1,5 @@
-package com.kire.jobs.data.mapper.offer
+package com.kire.jobs.data.mapper.vacancy
 
-import com.kire.jobs.data.mapper.vacancy.toDomain
 import com.kire.network.dto.response.vacancy.VacancyResponse
 
 /**

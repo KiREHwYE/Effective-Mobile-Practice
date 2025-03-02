@@ -1,6 +1,7 @@
 package com.kire.jobs.data
 
 import com.kire.jobs.data.mapper.offer.toDomain
+import com.kire.jobs.data.mapper.vacancy.toDomain
 import com.kire.jobs.domain.IJobsRepository
 import com.kire.jobs.domain.model.IRequestResultDomain
 import com.kire.network.ErrorsResponse
