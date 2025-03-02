@@ -1,6 +1,8 @@
 package com.kire.jobs.presentation
 
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -13,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
 import com.kire.jobs.presentation.constant.JobsStrings.APPLY_FOR
 import com.kire.jobs.presentation.constant.JobsStrings.NOW_LOOKING
@@ -26,6 +29,7 @@ import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
 import com.kire.ui.ui_component.GreenButton
 import com.kire.ui.ui_component.Tile
+import com.kire.ui.util.bounceClick
 import com.kire.util.formatDate
 import com.kire.util.getPeopleDeclension
 import com.kire.vacancies.R
@@ -36,15 +40,25 @@ import com.kire.vacancies.R
  *
  *  @param modifier модификатор
  *  @param vacancy информация о вакансии
+ *  @param onTileClick действие при клике на плитку вакансии
  *
  *  @author Михаил Гонтарев (KiREHwYE)
  */
 @Composable
 fun VacancyTile(
     modifier: Modifier = Modifier,
-    vacancy: Vacancy = Vacancy()
+    vacancy: Vacancy = Vacancy(),
+    onTileClick: () -> Unit = {}
 ) {
+
     Tile(
+        modifier = Modifier
+            .pointerInput(Unit) {
+                detectTapGestures {
+                    // Клик по плитке
+                    onTileClick()
+                }
+            },
         verticalArrangementDp = VERTICAL_PAD_21
     ) {
         Column(
@@ -61,12 +75,17 @@ fun VacancyTile(
                 verticalAlignment = Alignment.Top,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                vacancy.lookingNumber?.let {
-                    Text(
-                        text = NOW_LOOKING + it + " " + it.getPeopleDeclension(),
-                        style = extendedType.text1,
-                        color = extendedColor.green
-                    )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                ) {
+                    vacancy.lookingNumber?.let {
+                        Text(
+                            text = NOW_LOOKING + it + " " + it.getPeopleDeclension(),
+                            style = extendedType.text1,
+                            color = extendedColor.green
+                        )
+                    }
                 }
 
                 Icon(
@@ -78,7 +97,11 @@ fun VacancyTile(
                     contentDescription = "Heart" ,
                     tint = if (vacancy.isFavorite == true)
                         extendedColor.blue
-                    else extendedColor.grey1
+                    else extendedColor.white,
+                    modifier = Modifier
+                        .bounceClick {
+                            // TODO
+                        }
                 )
             }
 
