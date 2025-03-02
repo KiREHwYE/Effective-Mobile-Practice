@@ -24,7 +24,7 @@ import com.kire.ui.Dimens.VERTICAL_PAD_14
  */
 @Composable
 fun VacancyApplyButton(
-    onClick: () -> Unit
+    onClick: () -> Unit = {}
 ) {
 
     Box(
