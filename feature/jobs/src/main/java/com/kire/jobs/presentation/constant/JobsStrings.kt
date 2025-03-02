@@ -11,4 +11,6 @@ object JobsStrings {
     const val NOW_LOOKING = "Сейчас просматривает "
     const val PUBLISHED = "Опубликовано "
     const val APPLY_FOR = "Откликнуться"
+    const val MORE = "Еще"
+    const val VACANCIES = "вакансий"
 }
