@@ -26,18 +26,18 @@ class FavoriteViewModel(
     private val _requestResult: MutableStateFlow<IRequestResult> = MutableStateFlow(IRequestResult.Idle)
     val requestResult: StateFlow<IRequestResult> = _requestResult.asStateFlow()
 
-    private val _vacancies: MutableStateFlow<List<Vacancy>> = MutableStateFlow(emptyList())
-    val vacancies: StateFlow<List<Vacancy>> = _vacancies.asStateFlow()
+    private val _favoriteVacancies: MutableStateFlow<List<Vacancy>> = MutableStateFlow(emptyList())
+    val favoriteVacancies: StateFlow<List<Vacancy>> = _favoriteVacancies.asStateFlow()
 
     fun getVacancyById(id: String?) =
-        _vacancies.value.first { it.id == id }
+        _favoriteVacancies.value.first { it.id == id }
 
     fun OnEvent(event: FavoriteUiEvent) {
         when(event) {
             is FavoriteUiEvent.onHeartClick -> {
 
                 // Да, нужно было по-хорошему делать это через базу данных, но я уже не успевал ее сделать
-                _vacancies.value = _vacancies.value.map { vacancy ->
+                _favoriteVacancies.value = _favoriteVacancies.value.map { vacancy ->
                     if (vacancy.id == event.id)
                         vacancy.copy(isFavorite = event.isFavorite)
                     else vacancy
@@ -51,7 +51,7 @@ class FavoriteViewModel(
             _requestResult.value = favoriteUseCases.getFavoriteUseCase().toPresentation<List<VacancyDomain>>()
                 .also { result ->
                     if (result is IRequestResult.Success<*>)
-                        _vacancies.value = (result.data as List<*>).map {
+                        _favoriteVacancies.value = (result.data as List<*>).map {
                             (it as VacancyDomain).toPresentation()
                         }
                 }
