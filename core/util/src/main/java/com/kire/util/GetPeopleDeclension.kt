@@ -5,11 +5,11 @@ package com.kire.util
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
-fun getPeopleDeclension(number: Int): String {
+fun Int.getPeopleDeclension(): String {
     return when {
-        number % 100 in 11..14 -> "человек"
-        number % 10 == 1 -> "человек"
-        number % 10 in 2..4 -> "человека"
+        this % 100 in 11..14 -> "человек"
+        this % 10 == 1 -> "человек"
+        this % 10 in 2..4 -> "человека"
         else -> "человек"
     }
 }
