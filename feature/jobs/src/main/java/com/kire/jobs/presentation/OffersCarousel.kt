@@ -41,6 +41,7 @@ import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
 import com.kire.ui.ui_component.Tile
 import com.kire.ui.util.bounceClick
+import com.kire.ui.util.ignoreHorizontalParentPadding
 import com.kire.vacancies.R
 
 
@@ -89,9 +90,9 @@ fun OffersCarousel(
 
     LazyRow(
         modifier = modifier
+            .ignoreHorizontalParentPadding(HORIZONTAL_PAD_16)
             .fillMaxWidth()
-            .wrapContentHeight()
-            .ignoreHorizontalParentPadding(HORIZONTAL_PAD_16),
+            .wrapContentHeight(),
         contentPadding = PaddingValues(horizontal = HORIZONTAL_PAD_16),
         horizontalArrangement = Arrangement.spacedBy(HORIZONTAL_PAD_8),
         verticalAlignment = Alignment.CenterVertically
