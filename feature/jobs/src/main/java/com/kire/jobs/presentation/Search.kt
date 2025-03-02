@@ -7,11 +7,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.input.rememberTextFieldState
@@ -50,8 +50,9 @@ fun Search(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .wrapContentHeight(),
-        verticalAlignment = Alignment.CenterVertically
+            .height(IntrinsicSize.Min),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(HORIZONTAL_PAD_8)
     ) {
 
         // Кнопка поиск
@@ -61,14 +62,19 @@ fun Search(
             decorator = { innerTextField ->
                 Row (
                     modifier = Modifier
-                        .weight(1f)
-                        .height(IntrinsicSize.Max)
+                        .fillMaxSize()
                         .clip(RoundedCornerShape(ROUNDED_CORNERS_8))
                         .background(extendedColor.grey2)
                         .padding(horizontal = HORIZONTAL_PAD_8),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
                 ) {
+                    Icon(
+                        painter = painterResource(R.drawable.search),
+                        contentDescription = "Search",
+                        tint = extendedColor.grey4
+                    )
+
                     if (state.text.isNotBlank() || isFocused)
                         innerTextField()
                     else
@@ -78,7 +84,9 @@ fun Search(
                             color = com.kire.ui.theme.extendedColor.grey4
                         )
                 }
-            }
+            },
+            modifier = Modifier
+                .weight(1f)
         )
 
         // Кнопка фильтра
