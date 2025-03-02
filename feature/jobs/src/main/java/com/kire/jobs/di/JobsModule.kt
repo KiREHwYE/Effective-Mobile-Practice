@@ -7,7 +7,7 @@ import com.kire.jobs.domain.usecase.GetOffersUseCase
 import com.kire.jobs.domain.usecase.GetVacanciesUseCase
 import com.kire.jobs.domain.usecase.IJobsUseCases
 import com.kire.jobs.domain.usecase.JobsUseCases
-import com.kire.jobs.presentation.JobsViewModelFactory
+import com.kire.jobs.presentation.viewmodel.JobsViewModelFactory
 import com.kire.util.IODispatcher
 
 import dagger.Module

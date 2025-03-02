@@ -4,7 +4,7 @@ import com.kire.di.CoroutineModule
 import com.kire.network.di.NetworkModule
 import com.kire.jobs.domain.IJobsRepository
 import com.kire.jobs.domain.usecase.IJobsUseCases
-import com.kire.jobs.presentation.JobsViewModelFactory
+import com.kire.jobs.presentation.viewmodel.JobsViewModelFactory
 import com.kire.network.di.NetworkComponent
 
 import dagger.Component

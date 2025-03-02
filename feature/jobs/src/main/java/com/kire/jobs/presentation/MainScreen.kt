@@ -29,6 +29,11 @@ import com.kire.jobs.presentation.constant.Amounts.VACANCIES_TO_SHOW
 import com.kire.jobs.presentation.constant.JobsStrings.MORE
 import com.kire.jobs.presentation.constant.JobsStrings.VACANCIES
 import com.kire.jobs.presentation.constant.JobsStrings.VACANCIES_FOR_YOU
+import com.kire.jobs.presentation.topblock.OffersCarousel
+import com.kire.jobs.presentation.topblock.Search
+import com.kire.jobs.presentation.topblock.Sorting
+import com.kire.jobs.presentation.topblock.Topbar
+import com.kire.jobs.presentation.viewmodel.JobsViewModel
 import com.kire.ui.Dimens.ROUNDED_CORNERS_8
 import com.kire.ui.Dimens.VERTICAL_PAD_14
 import com.kire.ui.Dimens.VERTICAL_PAD_16

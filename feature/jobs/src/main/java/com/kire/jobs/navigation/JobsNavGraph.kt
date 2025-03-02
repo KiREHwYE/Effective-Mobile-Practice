@@ -3,7 +3,7 @@ package com.kire.jobs.navigation
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.kire.jobs.presentation.JobsViewModel
+import com.kire.jobs.presentation.viewmodel.JobsViewModel
 import com.kire.jobs.presentation.JobsScreen
 
 /**

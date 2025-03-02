@@ -1,4 +1,4 @@
-package com.kire.jobs.presentation
+package com.kire.jobs.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

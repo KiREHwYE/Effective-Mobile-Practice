@@ -8,7 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.navigation.compose.rememberNavController
 import com.kire.jobs.di.DaggerJobsComponent
-import com.kire.jobs.presentation.JobsViewModel
+import com.kire.jobs.presentation.viewmodel.JobsViewModel
 import com.kire.network.di.DaggerNetworkComponent
 import com.kire.ui.theme.EffectiveMobileExtendedPracticeTheme
 import com.kire.ui.ui_component.BaseLayout
