@@ -8,11 +8,11 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -22,21 +22,35 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.kire.jobs.presentation.constant.Amounts.VACANCIES_TO_SHOW
 import com.kire.jobs.presentation.constant.JobsStrings.MORE
 import com.kire.jobs.presentation.constant.JobsStrings.VACANCIES
 import com.kire.jobs.presentation.constant.JobsStrings.VACANCIES_FOR_YOU
-import com.kire.jobs.presentation.model.IRequestResult
 import com.kire.ui.Dimens.ROUNDED_CORNERS_8
 import com.kire.ui.Dimens.VERTICAL_PAD_14
 import com.kire.ui.Dimens.VERTICAL_PAD_16
 import com.kire.ui.Dimens.VERTICAL_PAD_32
+import com.kire.ui.theme.ExtendedTheme
 import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
 import com.kire.ui.util.bounceClick
 import com.kire.ui.util.ignoreVerticalParentPadding
+import com.kire.vacancies.R
 
+/**
+ * Отражает состояние главного экрана.
+ * ONLY_THREE_SHOWN -> начальное состояние
+ * ALL_SHOWN -> после нажатия на кнопку "Еще N вакансий"
+ *
+ * @author Михаил Гонтарев (KiREHwYE)
+ */
+private enum class JobsScreenState {
+    ONLY_THREE_SHOWN,
+    ALL_SHOWN
+}
 
 /**
  * Главный экран приложения со списком вакансий и предложений
@@ -45,21 +59,21 @@ import com.kire.ui.util.ignoreVerticalParentPadding
  * @param modifier модификатор
  */
 @Composable
-fun MainScreen(
+fun JobsScreen(
     navController: NavController,
     jobsViewModel: JobsViewModel,
     modifier: Modifier = Modifier
 ) {
-    val requestResult by jobsViewModel.requestResult.collectAsStateWithLifecycle()
-
     /** Список предложений для пользователя */
     val offers by jobsViewModel.offers.collectAsStateWithLifecycle()
 
     /** Список вакансий */
     val vacancies by jobsViewModel.vacancies.collectAsStateWithLifecycle()
 
-    /** По-умолчанию отображаем 3 вакансии */
-    var visibleVacanciesCount by rememberSaveable { mutableStateOf(3) }
+    /** Состояние экрана */
+    var jobsScreenState: JobsScreenState by rememberSaveable {
+        mutableStateOf(JobsScreenState.ONLY_THREE_SHOWN)
+    }
 
     LazyColumn(
         modifier = Modifier
@@ -77,21 +91,42 @@ fun MainScreen(
                     .wrapContentHeight(),
                 verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_32)
             ) {
+                // Топбар
                 Topbar(
                     search = {
-                        Search()
+                        Search(
+                            icon = {
+                                if (jobsScreenState.equals(JobsScreenState.ALL_SHOWN))
+                                    Icon(
+                                        painter = painterResource(R.drawable.arrow_back),
+                                        contentDescription = "Back",
+                                        tint = ExtendedTheme.extendedColor.white,
+                                        modifier = Modifier
+                                            .bounceClick {
+                                                jobsScreenState = JobsScreenState.ONLY_THREE_SHOWN
+                                            }
+                                    )
+                                else
+                                    Icon(
+                                        painter = painterResource(R.drawable.search),
+                                        contentDescription = "Search",
+                                        tint = ExtendedTheme.extendedColor.grey4
+                                    )
+                            }
+                        )
                     },
                     additional = {
-                        if (offers.isNotEmpty() && vacancies.size > visibleVacanciesCount)
+                        if (offers.isNotEmpty() && jobsScreenState.equals(JobsScreenState.ONLY_THREE_SHOWN))
                             OffersCarousel(
                                 offers = offers
                             )
-                        else if (requestResult !is IRequestResult.Idle)
+                        else if (jobsScreenState.equals(JobsScreenState.ONLY_THREE_SHOWN))
                             Sorting(vacanciesNumber = vacancies.size)
                     }
                 )
 
-                if (vacancies.size <= visibleVacanciesCount)
+                // Текст "Вакансии для вас"
+                if (jobsScreenState.equals(JobsScreenState.ONLY_THREE_SHOWN))
                     Text(
                         text = VACANCIES_FOR_YOU,
                         style = extendedType.title2,
@@ -100,18 +135,21 @@ fun MainScreen(
             }
         }
 
-        items(vacancies.take(visibleVacanciesCount)) { vacancy ->
+        // Плитки вакансий
+        items(vacancies.take(VACANCIES_TO_SHOW)) { vacancy ->
             VacancyTile(vacancy = vacancy)
         }
 
-        if (vacancies.size > visibleVacanciesCount) {
+        // Кнопка, при нажатии на которую меняется вид топбара,
+        // а также изменяется число отображаемых вакансий
+        if (offers.isNotEmpty() && jobsScreenState.equals(JobsScreenState.ONLY_THREE_SHOWN)) {
             item {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
                         .wrapContentHeight()
                         .bounceClick {
-                            visibleVacanciesCount = vacancies.size
+                            jobsScreenState = JobsScreenState.ALL_SHOWN
                         }
                         .clip(RoundedCornerShape(ROUNDED_CORNERS_8))
                         .background(color = extendedColor.blue)
@@ -119,7 +157,7 @@ fun MainScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = MORE + (vacancies.size - visibleVacanciesCount) + VACANCIES,
+                        text = MORE + (vacancies.size - VACANCIES_TO_SHOW) + VACANCIES,
                         style = extendedType.buttonText1,
                         color = extendedColor.white
                     )

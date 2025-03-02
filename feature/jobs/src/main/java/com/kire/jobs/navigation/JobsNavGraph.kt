@@ -4,7 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.kire.jobs.presentation.JobsViewModel
-import com.kire.jobs.presentation.MainScreen
+import com.kire.jobs.presentation.JobsScreen
 
 /**
  * Граф навигации для экранов feature:jobs
@@ -16,6 +16,6 @@ fun NavGraphBuilder.jobsNavGraph(
     jobsViewModel: JobsViewModel
 ) {
     composable(JobsRoutes.Main.route) {
-        MainScreen(navController, jobsViewModel)
+        JobsScreen(navController, jobsViewModel)
     }
 }
