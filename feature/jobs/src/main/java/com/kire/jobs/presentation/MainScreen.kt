@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -26,6 +27,7 @@ import androidx.navigation.NavController
 import com.kire.jobs.presentation.constant.JobsStrings.MORE
 import com.kire.jobs.presentation.constant.JobsStrings.VACANCIES
 import com.kire.jobs.presentation.constant.JobsStrings.VACANCIES_FOR_YOU
+import com.kire.jobs.presentation.model.IRequestResult
 import com.kire.ui.Dimens.ROUNDED_CORNERS_8
 import com.kire.ui.Dimens.VERTICAL_PAD_14
 import com.kire.ui.Dimens.VERTICAL_PAD_16
@@ -48,6 +50,8 @@ fun MainScreen(
     jobsViewModel: JobsViewModel,
     modifier: Modifier = Modifier
 ) {
+    val requestResult by jobsViewModel.requestResult.collectAsStateWithLifecycle()
+
     /** Список предложений для пользователя */
     val offers by jobsViewModel.offers.collectAsStateWithLifecycle()
 
@@ -77,19 +81,22 @@ fun MainScreen(
                     search = {
                         Search()
                     },
-                    offersCarousel = {
-                        if (offers.isNotEmpty())
+                    additional = {
+                        if (offers.isNotEmpty() && vacancies.size > visibleVacanciesCount)
                             OffersCarousel(
                                 offers = offers
                             )
+                        else if (requestResult !is IRequestResult.Idle)
+                            Sorting(vacanciesNumber = vacancies.size)
                     }
                 )
 
-                Text(
-                    text = VACANCIES_FOR_YOU,
-                    style = extendedType.title2,
-                    color = extendedColor.white
-                )
+                if (vacancies.size <= visibleVacanciesCount)
+                    Text(
+                        text = VACANCIES_FOR_YOU,
+                        style = extendedType.title2,
+                        color = extendedColor.white
+                    )
             }
         }
 
