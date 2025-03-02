@@ -47,6 +47,7 @@ import com.kire.ui.Dimens.VERTICAL_PAD_7
 import com.kire.ui.Dimens.VERTICAL_PAD_8
 import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
+import com.kire.ui.ui_component.GreenButton
 import com.kire.ui.ui_component.Tile
 import com.kire.ui.util.bounceClick
 
@@ -204,24 +205,12 @@ fun LogInScreen(
                     )
                 }
 
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                        .bounceClick {
-                            // Некоторое действие, которое по заданию не дано
-                        }
-                        .clip(RoundedCornerShape(ROUNDED_CORNERS_50_PERCENT))
-                        .background(extendedColor.green)
-                        .padding(vertical = VERTICAL_PAD_7),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = I_SEARCH_FOR_EMPLOYEES,
-                        style = extendedType.buttonText2,
-                        color = extendedColor.white
-                    )
-                }
+                GreenButton(
+                    text = I_SEARCH_FOR_EMPLOYEES,
+                    action = {
+                        // Некоторое действие, которое по заданию не дано
+                    }
+                )
             }
         }
     }
