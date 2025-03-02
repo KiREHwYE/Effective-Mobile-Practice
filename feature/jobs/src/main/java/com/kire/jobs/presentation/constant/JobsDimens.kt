@@ -11,4 +11,6 @@ import androidx.compose.ui.unit.dp
 object JobsDimens {
     val FILTER_SIZE = 40.dp
     val OFFER_ICON_SIZE = 32.dp
+
+    val OFFER_WIDTH = 132.dp
 }
