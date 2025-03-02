@@ -40,6 +40,10 @@ import com.kire.ui.theme.extendedColor
 fun Tile(
     modifier: Modifier = Modifier,
     verticalArrangement: Dp = VERTICAL_PAD_16,
+    paddingValues: PaddingValues = PaddingValues(
+        vertical = VERTICAL_PAD_24,
+        horizontal = HORIZONTAL_PAD_16
+    ),
     content: @Composable () -> Unit
 ) {
 
@@ -49,10 +53,7 @@ fun Tile(
             .fillMaxWidth()
             .clip(RoundedCornerShape(ROUNDED_CORNERS_8))
             .background(color = extendedColor.grey1)
-            .padding(
-                vertical = VERTICAL_PAD_24,
-                horizontal = HORIZONTAL_PAD_16
-            ),
+            .padding(paddingValues),
         verticalArrangement = Arrangement.spacedBy(verticalArrangement),
         horizontalAlignment = Alignment.Start
     ) {
