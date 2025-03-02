@@ -31,6 +31,7 @@ object Dimens {
     val VERTICAL_PAD_20 = 20.dp
     val VERTICAL_PAD_24 = 24.dp
     val VERTICAL_PAD_32 = 32.dp
+    val VERTICAL_PAD_40 = 40.dp
 
     val ROUNDED_CORNERS_8 = 8.dp
     val ROUNDED_CORNERS_50_PERCENT = 50
