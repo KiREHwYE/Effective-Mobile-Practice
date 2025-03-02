@@ -45,7 +45,6 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
-    implementation(libs.androidx.material3.android)
     ksp(libs.google.dagger.compiler)
 
     // Навигация
@@ -53,6 +52,7 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.ktx)
 
     // Модули
+    implementation(project(":core:ui"))
     implementation(project(":core:network"))
     implementation(project(":core:di"))
     implementation(project(":core:util"))
@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.androidx.runtime.android)
     implementation(libs.androidx.ui.android)
     implementation(libs.material3)
+    implementation(libs.androidx.material3.android)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
