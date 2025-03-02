@@ -90,7 +90,7 @@ fun VacanciesBlock(
                         ) {
                             vacancy.lookingNumber?.let {
                                 Text(
-                                    text = NOW_LOOKING + it + it.getPeopleDeclension(),
+                                    text = NOW_LOOKING + it + " " + it.getPeopleDeclension(),
                                     style = extendedType.text1,
                                     color = extendedColor.green
                                 )
@@ -102,7 +102,10 @@ fun VacanciesBlock(
                                         R.drawable.filled_heart
                                     else R.drawable.unfilled_heart
                                 ),
-                                contentDescription = "Heart"
+                                contentDescription = "Heart" ,
+                                tint = if (vacancy.isFavorite == true)
+                                    extendedColor.grey2
+                                else extendedColor.blue
                             )
                         }
 
@@ -140,7 +143,8 @@ fun VacanciesBlock(
 
                                 Icon(
                                     painter = painterResource(R.drawable.accreditation),
-                                    contentDescription = "Accreditation"
+                                    contentDescription = "Accreditation",
+                                    tint = extendedColor.grey3
                                 )
                             }
                         }
@@ -154,7 +158,8 @@ fun VacanciesBlock(
 
                             Icon(
                                 painter = painterResource(R.drawable.briefcase),
-                                contentDescription = "Accreditation"
+                                contentDescription = "Accreditation",
+                                tint = extendedColor.white
                             )
 
                             Text(
