@@ -16,7 +16,6 @@ import com.kire.ui.Dimens.ROUNDED_CORNERS_8
 import com.kire.ui.Dimens.VERTICAL_PAD_14
 import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
-import com.kire.ui.util.bounceClick
 
 /**
  * Кнопка, при нажатии на которую меняется вид топбара,

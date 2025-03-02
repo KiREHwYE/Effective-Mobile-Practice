@@ -3,7 +3,6 @@ package com.kire.effectivemobilepractice
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.kire.favourites.navigation.FavoriteRoutes
 import com.kire.favourites.navigation.favoriteNavGraph
 import com.kire.favourites.presentation.viewmodel.FavoriteViewModel
 import com.kire.jobs.navigation.JobsRoutes
