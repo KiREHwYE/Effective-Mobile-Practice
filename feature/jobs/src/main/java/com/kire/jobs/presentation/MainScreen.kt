@@ -176,24 +176,12 @@ fun JobsScreen(
         // а также изменяется число отображаемых вакансий
         if (offers.isNotEmpty() && jobsScreenState.equals(JobsScreenState.ONLY_THREE_SHOWN)) {
             item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                        .bounceClick {
-                            jobsScreenState = JobsScreenState.ALL_SHOWN
-                        }
-                        .clip(RoundedCornerShape(ROUNDED_CORNERS_8))
-                        .background(color = extendedColor.blue)
-                        .padding(vertical = VERTICAL_PAD_14),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = MORE + (vacancies.size - VACANCIES_TO_SHOW) + VACANCIES,
-                        style = extendedType.buttonText1,
-                        color = extendedColor.white
-                    )
-                }
+                MoreVacanciesButton(
+                    text = MORE + (vacancies.size - VACANCIES_TO_SHOW) + VACANCIES,
+                    onClick = {
+                        jobsScreenState = JobsScreenState.ALL_SHOWN
+                    }
+                )
             }
         }
     }
