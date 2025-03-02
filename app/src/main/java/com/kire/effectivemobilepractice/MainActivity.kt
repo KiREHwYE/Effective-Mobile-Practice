@@ -6,6 +6,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.rememberNavController
 import com.kire.jobs.di.DaggerJobsComponent
 import com.kire.jobs.presentation.viewmodel.JobsViewModel
@@ -35,10 +39,19 @@ class MainActivity : ComponentActivity() {
 
                 val navController = rememberNavController()
 
+                val vacancies by jobsViewModel.vacancies.collectAsStateWithLifecycle()
+
+                val favoriteCount by remember {
+                    derivedStateOf {
+                        vacancies.count { it.isFavorite == true }
+                    }
+                }
+
                 BaseLayout(
                     bottomMenu = {
                         BottomMenu(
-                            navController = navController
+                            navController = navController,
+                            favoriteCount = favoriteCount
                         )
                     }
                 ) {
