@@ -15,4 +15,6 @@ object JobsStrings {
     const val VACANCIES = " вакансий"
     const val BY_RELEVANCY = "По соответствию"
     const val YOUR_TASKS = "Ваши задачи"
+    const val ASK_QUESTIONS = "Задайте вопрос работодателю"
+    const val HE_GETS_IT = "Он получит его с откликом на вакансию"
 }
