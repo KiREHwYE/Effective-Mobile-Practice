@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
@@ -14,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.kire.jobs.presentation.model.JobsUiEvent
 import com.kire.jobs.presentation.viewmodel.JobsViewModel
 import com.kire.ui.Dimens.VERTICAL_PAD_16
 import com.kire.ui.theme.extendedColor
@@ -40,10 +42,15 @@ fun VacancyPage(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState()),
+            .verticalScroll(rememberScrollState())
+            .padding(bottom = VERTICAL_PAD_16),
         verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_16)
     ) {
-        VacancyTopblock()
+        VacancyTopblock(
+            onBackClick = {
+                navController.popBackStack()
+            }
+        )
         VacancyTitleSection(vacancy)
         VacancyStats(vacancy)
         VacancyCompanySection(vacancy)
