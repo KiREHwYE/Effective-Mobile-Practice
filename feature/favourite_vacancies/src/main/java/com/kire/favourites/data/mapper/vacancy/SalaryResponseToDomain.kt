@@ -1,7 +1,7 @@
 package com.kire.favourites.data.mapper.vacancy
 
+import com.kire.favourites.domain.model.vacancy.SalaryDomain
 import com.kire.network.dto.response.vacancy.SalaryResponse
-import com.kire.jobs.domain.model.vacancy.SalaryDomain
 
 /**
  * Конвертирует SalaryResponse в SalaryDomain

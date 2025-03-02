@@ -1,6 +1,6 @@
 package com.kire.favourites.data.mapper.vacancy
 
-import com.kire.jobs.domain.model.vacancy.VacancyDomain
+import com.kire.favourites.domain.model.vacancy.VacancyDomain
 import com.kire.network.dto.response.vacancy.VacancyResponse
 
 /**

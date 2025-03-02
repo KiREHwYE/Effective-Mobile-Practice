@@ -1,7 +1,7 @@
 package com.kire.favourites.data.mapper.vacancy
 
+import com.kire.favourites.domain.model.vacancy.AddressDomain
 import com.kire.network.dto.response.vacancy.AddressResponse
-import com.kire.jobs.domain.model.vacancy.AddressDomain
 
 /**
  * Конвертирует AddressResponse в AddressDomain

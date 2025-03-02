@@ -1,7 +1,7 @@
 package com.kire.favourites.data.mapper.vacancy
 
+import com.kire.favourites.domain.model.vacancy.ExperienceDomain
 import com.kire.network.dto.response.vacancy.ExperienceResponse
-import com.kire.jobs.domain.model.vacancy.ExperienceDomain
 
 /**
  * Конвертирует ExperienceResponse в ExperienceDomain
