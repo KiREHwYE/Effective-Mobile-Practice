@@ -13,7 +13,7 @@ import javax.inject.Inject
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
-class GetFavoriteUseCases @Inject constructor(
+class GetFavoriteUseCase @Inject constructor(
     private val jobsRepository: IFavoriteRepository
 ) {
     suspend operator fun invoke() =

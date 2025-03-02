@@ -6,5 +6,5 @@ package com.kire.favourites.domain.usecase
  * @author Михаил Гонтарев (KiREHwYE)
  */
 sealed interface IFavoriteUseCases {
-    val getFavoriteUseCases: GetFavoriteUseCases
+    val getFavoriteUseCase: GetFavoriteUseCase
 }

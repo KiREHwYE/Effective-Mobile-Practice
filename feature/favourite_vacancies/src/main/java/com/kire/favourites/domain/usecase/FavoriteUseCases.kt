@@ -8,5 +8,5 @@ import javax.inject.Inject
  * @author Михаил Гонтарев (KiREHwYE)
  */
 data class FavoriteUseCases @Inject constructor(
-    override val getFavoriteUseCases: GetFavoriteUseCases,
+    override val getFavoriteUseCase: GetFavoriteUseCase,
 ): IFavoriteUseCases
