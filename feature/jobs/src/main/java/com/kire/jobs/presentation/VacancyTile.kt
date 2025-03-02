@@ -78,7 +78,7 @@ fun VacancyTile(
                     contentDescription = "Heart" ,
                     tint = if (vacancy.isFavorite == true)
                         extendedColor.blue
-                    else extendedColor.grey2
+                    else extendedColor.grey1
                 )
             }
 
