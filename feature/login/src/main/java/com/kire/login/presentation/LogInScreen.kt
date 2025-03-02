@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.SolidColor
 import androidx.navigation.NavController
 import com.kire.login.presentation.constant.LogInDimens.TEXTFIELD_HEIGHT
 import com.kire.login.presentation.constant.LogInStrings.CONTINUE
@@ -109,6 +110,8 @@ fun LogInScreen(
                 BasicTextField(
                     state = state,
                     interactionSource = interactionSource,
+                    textStyle = extendedType.text1.copy(color = extendedColor.white),
+                    cursorBrush = SolidColor(extendedColor.white),
                     decorator = { innerTextField ->
                         Box(
                             modifier = Modifier
