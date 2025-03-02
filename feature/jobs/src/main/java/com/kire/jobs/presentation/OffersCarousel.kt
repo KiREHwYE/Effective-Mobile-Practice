@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -35,6 +34,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.kire.jobs.presentation.constant.JobsDimens.OFFER_ICON_SIZE
 import com.kire.jobs.presentation.constant.JobsDimens.OFFER_WIDTH
 import com.kire.jobs.presentation.model.offer.Offer
+import com.kire.ui.Dimens.HORIZONTAL_PAD_16
 import com.kire.ui.Dimens.HORIZONTAL_PAD_8
 import com.kire.ui.Dimens.VERTICAL_PAD_10
 import com.kire.ui.theme.extendedColor
@@ -42,6 +42,7 @@ import com.kire.ui.theme.extendedType
 import com.kire.ui.ui_component.Tile
 import com.kire.ui.util.bounceClick
 import com.kire.vacancies.R
+
 
 /**
  * Карусель предложений
@@ -90,7 +91,8 @@ fun OffersCarousel(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(horizontal = HORIZONTAL_PAD_8),
+            .ignoreHorizontalParentPadding(HORIZONTAL_PAD_16),
+        contentPadding = PaddingValues(horizontal = HORIZONTAL_PAD_16),
         horizontalArrangement = Arrangement.spacedBy(HORIZONTAL_PAD_8),
         verticalAlignment = Alignment.CenterVertically
     ) {
