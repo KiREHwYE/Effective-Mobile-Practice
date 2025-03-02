@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.navigation.runtime.ktx)
 
+    // Модули
     implementation(project(":core:network"))
     implementation(project(":core:di"))
     implementation(project(":core:util"))
