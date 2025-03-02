@@ -29,6 +29,7 @@ import com.kire.jobs.presentation.constant.Amounts.VACANCIES_TO_SHOW
 import com.kire.jobs.presentation.constant.JobsStrings.MORE
 import com.kire.jobs.presentation.constant.JobsStrings.VACANCIES
 import com.kire.jobs.presentation.constant.JobsStrings.VACANCIES_FOR_YOU
+import com.kire.jobs.presentation.model.JobsUiEvent
 import com.kire.jobs.presentation.topblock.OffersCarousel
 import com.kire.jobs.presentation.topblock.Search
 import com.kire.jobs.presentation.topblock.Sorting
@@ -100,6 +101,16 @@ fun JobsScreen(
                 Topbar(
                     search = {
                         Search(
+                            onSearch = { searchText ->
+                                jobsViewModel.OnEvent(
+                                    JobsUiEvent.onSearch(searchText)
+                                )
+                            },
+                            onFilter = { filterParam ->
+                                jobsViewModel.OnEvent(
+                                    JobsUiEvent.onFilter(filterParam)
+                                )
+                            },
                             icon = {
                                 if (jobsScreenState.equals(JobsScreenState.ALL_SHOWN))
                                     Icon(
@@ -126,7 +137,14 @@ fun JobsScreen(
                                 offers = offers
                             )
                         else if (jobsScreenState.equals(JobsScreenState.ONLY_THREE_SHOWN))
-                            Sorting(vacanciesNumber = vacancies.size)
+                            Sorting(
+                                vacanciesNumber = vacancies.size,
+                                onSort = { sortParam ->
+                                    jobsViewModel.OnEvent(
+                                        JobsUiEvent.onFilter(sortParam)
+                                    )
+                                }
+                            )
                     }
                 )
 
@@ -142,7 +160,16 @@ fun JobsScreen(
 
         // Плитки вакансий
         items(vacancies.take(VACANCIES_TO_SHOW)) { vacancy ->
-            VacancyTile(vacancy = vacancy)
+            VacancyTile(
+                vacancy = vacancy,
+                onHeartClick = {
+                    vacancy.id?.let { id ->
+                        jobsViewModel.OnEvent(
+                            JobsUiEvent.onHeartClick(id, !(vacancy.isFavorite ?: false))
+                        )
+                    }
+                }
+            )
         }
 
         // Кнопка, при нажатии на которую меняется вид топбара,

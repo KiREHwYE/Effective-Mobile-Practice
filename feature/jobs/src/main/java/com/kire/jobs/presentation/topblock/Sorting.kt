@@ -16,16 +16,18 @@ import com.kire.util.getVacancyDeclension
  *
  * @param modifier модификатор
  * @param vacanciesNumber число вакансий
+ * @param onSort действие при изменении параметра сортировки - бутафория
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Composable
 fun Sorting(
     modifier: Modifier = Modifier,
-    vacanciesNumber: Int = 0
+    vacanciesNumber: Int = 0,
+    onSort: (String) -> Unit
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight(),
         horizontalArrangement = Arrangement.SpaceBetween

@@ -9,6 +9,7 @@ import com.kire.jobs.presentation.mapper.offer.toPresentation
 import com.kire.jobs.presentation.mapper.toPresentation
 import com.kire.jobs.presentation.mapper.vacancy.toPresentation
 import com.kire.jobs.presentation.model.IRequestResult
+import com.kire.jobs.presentation.model.JobsUiEvent
 import com.kire.jobs.presentation.model.offer.Offer
 import com.kire.jobs.presentation.model.vacancy.Vacancy
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,6 +34,29 @@ class JobsViewModel(
 
     private val _offers: MutableStateFlow<List<Offer>> = MutableStateFlow(emptyList())
     val offers: StateFlow<List<Offer>> = _offers.asStateFlow()
+
+    fun OnEvent(event: JobsUiEvent) {
+        when(event) {
+            is JobsUiEvent.onHeartClick -> {
+
+                // Да, нужно было по-хорошему делать это через базу данных, но я уже не успевал ее сделать
+                _vacancies.value = _vacancies.value.map { vacancy ->
+                    if (vacancy.id == event.id)
+                        vacancy.copy(isFavorite = event.isFavorite)
+                    else vacancy
+                }
+            }
+            is JobsUiEvent.onSearch -> {
+                // Бутафория
+            }
+            is JobsUiEvent.onSort -> {
+                // Бутафория
+            }
+            is JobsUiEvent.onFilter -> {
+                // Бутафория
+            }
+        }
+    }
 
     init {
         viewModelScope.launch {

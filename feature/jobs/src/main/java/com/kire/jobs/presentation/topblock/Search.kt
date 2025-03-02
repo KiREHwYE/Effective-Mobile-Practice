@@ -35,11 +35,18 @@ import com.kire.vacancies.R
 /**
  * Бутафорский поиск
  *
+ * @param modifier модификатор
+ * @param onSearch действие при изменении поисковой строки - бутафория
+ * @param onSearch действие при параметра фильтрации - бутафория
+ * @param icon иконка
+ *
  * @author Михаил Гонтарев (KiREHwYE)
  */
 @Composable
 fun Search(
     modifier: Modifier = Modifier,
+    onSearch: (String) -> Unit = {},
+    onFilter: (String) -> Unit = {},
     icon: @Composable () -> Unit
 ){
     /** Состояние поля ввода, в которое пользователь вводит почту*/
