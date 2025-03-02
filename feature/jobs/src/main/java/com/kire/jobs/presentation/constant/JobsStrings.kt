@@ -13,4 +13,5 @@ object JobsStrings {
     const val APPLY_FOR = "Откликнуться"
     const val MORE = "Еще "
     const val VACANCIES = " вакансий"
+    const val BY_RELEVANCY = "По соответствию"
 }
