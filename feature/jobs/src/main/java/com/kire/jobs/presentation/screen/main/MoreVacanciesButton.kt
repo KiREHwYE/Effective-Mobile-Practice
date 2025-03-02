@@ -1,4 +1,4 @@
-package com.kire.jobs.presentation
+package com.kire.jobs.presentation.screen.main
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

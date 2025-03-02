@@ -1,4 +1,4 @@
-package com.kire.jobs.presentation.topblock
+package com.kire.jobs.presentation.screen.main.topblock
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package com.kire.jobs.presentation.topblock
+package com.kire.jobs.presentation.screen.main.topblock
 
 import android.content.Intent
 import android.net.Uri

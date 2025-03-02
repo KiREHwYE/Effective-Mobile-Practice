@@ -4,7 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.kire.jobs.presentation.viewmodel.JobsViewModel
-import com.kire.jobs.presentation.JobsScreen
+import com.kire.jobs.presentation.screen.main.JobsScreen
 
 /**
  * Граф навигации для экранов feature:jobs
