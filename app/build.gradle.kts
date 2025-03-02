@@ -56,10 +56,10 @@ dependencies {
 
     // Dagger
     implementation(libs.dagger)
-    implementation(project(":core:network"))
     ksp(libs.google.dagger.compiler)
 
     // Модули
+    implementation(project(":core:network"))
     implementation(project(":core:ui"))
     implementation(project(":feature:login"))
     implementation(project(":feature:jobs"))
