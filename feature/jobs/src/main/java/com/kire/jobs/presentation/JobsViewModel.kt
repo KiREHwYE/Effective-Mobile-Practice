@@ -43,6 +43,7 @@ class JobsViewModel(
                             (it as VacancyDomain).toPresentation()
                         }
                 }
+            _requestResult.value = IRequestResult.Idle
         }
 
         viewModelScope.launch {
@@ -53,6 +54,7 @@ class JobsViewModel(
                             (it as OfferDomain).toPresentation()
                         }
                 }
+            _requestResult.value = IRequestResult.Idle
         }
     }
 }
