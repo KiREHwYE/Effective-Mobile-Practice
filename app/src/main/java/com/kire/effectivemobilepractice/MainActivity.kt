@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             EffectiveMobileExtendedPracticeTheme {
 
-                BaseLayout { paddingValues ->
+                BaseLayout {
                     val navController = rememberNavController()
 
                     MainNavHost(
