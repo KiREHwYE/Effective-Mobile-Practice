@@ -43,7 +43,8 @@ import com.kire.ui.util.bounceClick
 @Composable
 fun LogInCodeScreen(
     navController: NavController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navigateToMainScreen: () -> Unit = {}
 ) {
 
     /** Флаг того, введен ли код или нет */
@@ -100,7 +101,7 @@ fun LogInCodeScreen(
                             Modifier
                         else Modifier
                             .bounceClick {
-                                // TODO
+                                navigateToMainScreen()
                             }
                     )
                     .clip(RoundedCornerShape(ROUNDED_CORNERS_8))

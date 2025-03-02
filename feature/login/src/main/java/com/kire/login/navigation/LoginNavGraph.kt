@@ -11,7 +11,12 @@ import com.kire.login.presentation.LogInScreen
  *
  * @author Михаил Гонтарев (KiREHwYE)
  */
-fun NavGraphBuilder.loginNavGraph(navController: NavHostController) {
+fun NavGraphBuilder.loginNavGraph(navController: NavHostController, navigateToMainScreen: () -> Unit) {
     composable(LogInRoutes.LogIn.route) { LogInScreen(navController) }
-    composable(LogInRoutes.LogInCode.route) { LogInCodeScreen(navController) }
+    composable(LogInRoutes.LogInCode.route) {
+        LogInCodeScreen(
+            navController = navController,
+            navigateToMainScreen = navigateToMainScreen
+        )
+    }
 }
