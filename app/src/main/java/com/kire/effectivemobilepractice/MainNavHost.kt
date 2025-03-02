@@ -32,7 +32,7 @@ fun MainNavHost(
             navController = navHostController,
             favoriteViewModel = favoriteViewModel,
             navigateToVacancyPageWithVacancyId = { vacancyId ->
-                navHostController.navigate(FavoriteRoutes.Favorite.route + "/${vacancyId}")
+                navHostController.navigate(JobsRoutes.Vacancy.route + "/$vacancyId")
             }
         )
     }
