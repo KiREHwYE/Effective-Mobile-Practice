@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.kire.favourites.di.DaggerFavoriteComponent
 import com.kire.favourites.presentation.viewmodel.FavoriteViewModel
 import com.kire.jobs.di.DaggerJobsComponent
 import com.kire.jobs.presentation.viewmodel.JobsViewModel
