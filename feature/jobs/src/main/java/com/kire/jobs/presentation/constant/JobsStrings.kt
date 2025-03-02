@@ -9,4 +9,5 @@ object JobsStrings {
     const val SEARCH_HINT = "Должность, ключевые слова"
     const val VACANCIES_FOR_YOU = "Вакансии для вас"
     const val NOW_LOOKING = "Сейчас просматривает "
+    const val PUBLISHED = "Опубликовано "
 }
