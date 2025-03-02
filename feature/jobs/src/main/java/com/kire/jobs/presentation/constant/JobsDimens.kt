@@ -13,4 +13,6 @@ object JobsDimens {
     val OFFER_ICON_SIZE = 32.dp
 
     val OFFER_WIDTH = 132.dp
+
+    val VACANCY_PAGE_SMALL_ICON_SIZE = 16.dp
 }
