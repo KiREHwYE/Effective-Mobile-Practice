@@ -8,6 +8,7 @@ import androidx.compose.ui.unit.dp
  * @author Михаил Гонтарев (KiREHwYE)
  */
 object Dimens {
+    val HORIZONTAL_PAD_6 = 6.dp
     val HORIZONTAL_PAD_8 = 8.dp
     val HORIZONTAL_PAD_16 = 16.dp
     val HORIZONTAL_PAD_24 = 24.dp
