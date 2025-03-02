@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.kire.jobs.presentation.constant.JobsStrings.BY_RELEVANCY
 import com.kire.ui.Dimens.HORIZONTAL_PAD_6
+import com.kire.ui.Dimens.VERTICAL_PAD_5
 import com.kire.ui.theme.extendedColor
 import com.kire.ui.theme.extendedType
 import com.kire.ui.util.bounceClick
@@ -44,7 +45,9 @@ fun SortSelector(
             style = extendedType.text1
         )
 
-        Column {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(VERTICAL_PAD_5)
+        ) {
 
             Icon(
                 painter = painterResource(R.drawable.arrow_up),
