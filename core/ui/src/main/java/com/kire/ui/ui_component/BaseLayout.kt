@@ -29,32 +29,14 @@ fun BaseLayout(
     bottomMenu: @Composable () -> Unit = {},
     content: @Composable () -> Unit = {}
 ) {
-//    Box(
-//        modifier = Modifier
-//            .fillMaxSize()
-//            .background(color = extendedColor.black)
-//            .windowInsetsPadding(WindowInsets.displayCutout)
-//            .padding(
-//                PaddingValues(
-//                    horizontal = HORIZONTAL_PAD_16,
-//                    vertical = VERTICAL_PAD_16
-//                )
-//            )
-//    ) {
-//        content()
-//
-//        bottomMenu(Modifier.align(Alignment.BottomCenter))
-//    }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(color = extendedColor.black)
             .windowInsetsPadding(WindowInsets.displayCutout)
-            .padding(
-                horizontal = HORIZONTAL_PAD_16,
-                vertical = VERTICAL_PAD_16
-            )
+            .padding(horizontal = HORIZONTAL_PAD_16)
+            .padding(top = VERTICAL_PAD_16)
     ) {
         Box(modifier = Modifier.weight(1f)) {
             content()

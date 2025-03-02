@@ -42,12 +42,11 @@ import com.kire.ui.theme.extendedType
  */
 @Composable
 fun BottomMenu(
+    currentRoute: String?,
     navController: NavController,
     modifier: Modifier = Modifier,
     favoriteCount: Int = 0
 ) {
-    /** Текущий route */
-    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
 
     Row(
         modifier = modifier

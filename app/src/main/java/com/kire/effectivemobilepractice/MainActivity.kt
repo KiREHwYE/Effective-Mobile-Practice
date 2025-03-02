@@ -2,6 +2,7 @@ package com.kire.effectivemobilepractice
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.Menu
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -10,6 +11,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.kire.jobs.di.DaggerJobsComponent
 import com.kire.jobs.presentation.viewmodel.JobsViewModel
@@ -47,12 +49,17 @@ class MainActivity : ComponentActivity() {
                     }
                 }
 
+                /** Текущий route */
+                val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+
                 BaseLayout(
                     bottomMenu = {
-                        BottomMenu(
-                            navController = navController,
-                            favoriteCount = favoriteCount
-                        )
+                        if (MenuDestinations.entries.any { it.route == currentRoute })
+                            BottomMenu(
+                                currentRoute = currentRoute,
+                                navController = navController,
+                                favoriteCount = favoriteCount
+                            )
                     }
                 ) {
 
